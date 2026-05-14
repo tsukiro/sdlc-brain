@@ -186,6 +186,7 @@
   },
   "active": "9a67974b4db3bc51",
   "lastOpenFiles": [
+    "wiki/gcav-paper.md",
     "wiki/westtrain-rag-confluence.md",
     "wiki/concepts/llm-wiki.md",
     "wiki/llm-wiki-karpathy.md",
@@ -211,7 +212,6 @@
     "wiki/jxnl-pipelines.md",
     "wiki/typechat.md",
     "wiki/instructor.md",
-    "wiki/analyses/sdlc-ia-flujo-recomendado.md",
     "wiki/analyses",
     "wiki/concepts",
     "wiki/entities",
