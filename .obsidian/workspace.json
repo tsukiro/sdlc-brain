@@ -186,6 +186,8 @@
   },
   "active": "9a67974b4db3bc51",
   "lastOpenFiles": [
+    "wiki/langchain-js.md",
+    "wiki/langchain-python.md",
     "wiki/concepts/structured-generation.md",
     "wiki/overview.md",
     "wiki/analyses/agentic-patterns-diagramas.md",
@@ -210,8 +212,6 @@
     "wiki/concepts/prompt-injection.md",
     "wiki/learn-prompting-defense.md",
     "wiki/simon-willison-2023.md",
-    "wiki/simon-willison-2022.md",
-    "wiki/owasp-llm01-detail.md",
     "wiki/analyses",
     "wiki/concepts",
     "wiki/entities",
