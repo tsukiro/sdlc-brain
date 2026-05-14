@@ -131,3 +131,11 @@ Registro cronológico append-only de todas las operaciones del wiki.
 - Nueva tensión: "Simple tools win" (Liu) vs. arquitecturas multi-agent — SDD como puente (outputs estructurados reducen el ruido de los hops)
 - Páginas creadas: [[outlines-paper]], [[instructor]], [[typechat]], [[jxnl-pipelines]], [[concepts/structured-generation]], [[entities/outlines]], [[entities/instructor]], [[entities/typechat]]
 - Páginas actualizadas: [[gemini]] (sección Structured Outputs nativos + Instructor), [[overview]] (tema 12 + 2 tensiones nuevas + mapa de conceptos), [[index]]
+
+## [2026-05-14] ingest | LLM Wiki — Patrón Karpathy + caso MariaDB Labs
+- Alternativa a RAG para corpus ≤400k tokens: compile-time synthesis, query-time context load (sin retrieval step)
+- MariaDB Labs (78 artículos / 265k palabras / ~1M tokens): P95 latencia 1100ms → 180ms (6×), costo $0.15 → $0.03 / 1000 queries (5×)
+- 5 errores comunes documentados: no linting, wiki sin límite, alucinación en síntesis, falta de versionado, actualización infrecuente
+- Meta-nota: este vault SDLC es la implementación viva del patrón descrito
+- Páginas creadas: [[llm-wiki-karpathy]], [[concepts/llm-wiki]]
+- Páginas actualizadas: [[overview]] (tema 15 + mapa de conceptos), [[index]]
