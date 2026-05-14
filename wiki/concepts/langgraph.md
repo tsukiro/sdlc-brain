@@ -1,9 +1,9 @@
 ---
 title: "LangGraph"
 type: concept
-tags: [langgraph, agentes, grafo, state-machine, producción, langchain]
+tags: [langgraph, agentes, grafo, state-machine, producción, langchain, python, typescript, nodejs]
 sources: [2026-05-13_langgraph.md]
-updated: 2026-05-13
+updated: 2026-05-14
 ---
 
 # LangGraph
@@ -74,10 +74,33 @@ Ver [[multi-agent-frameworks]] para la comparativa completa con CrewAI.
 
 LangGraph + [[entities/gemini]] / OpenAI + LangChain text splitters + vector DB
 
+## Disponibilidad por plataforma
+
+| Feature | Python | TypeScript/Node.js |
+|---|---|---|
+| `StateGraph` | ✅ | ✅ |
+| `create_react_agent` | ✅ | ✅ (`createReactAgent`) |
+| `ToolNode` | ✅ | ✅ |
+| `MemorySaver` / `InMemorySaver` | ✅ | ✅ (`MemorySaver`) |
+| `SqliteSaver` | ✅ `langgraph-checkpoint-sqlite` | ✅ `@langchain/langgraph-checkpoint-sqlite` |
+| `PostgresSaver` | ✅ `langgraph-checkpoint-postgres` | Parcial |
+| Human-in-the-loop / `interrupt` | ✅ | ✅ |
+| Streaming (`stream_mode`) | ✅ | ✅ (`streamMode`) |
+| Subgraphs | ✅ | ✅ |
+| `Send` (map-reduce) | ✅ | Parcial |
+
+Para código concreto de implementación ver [[langgraph-python]] (Python) y [[langgraph-js]] (TypeScript/Node.js).
+
 ## Conexiones
 
-- [[langgraph]] — fuente primaria
-- [[multi-agent-frameworks]] — comparativa con CrewAI
+- [[langgraph]] — fuente primaria (doc inicial)
+- [[langgraph-python]] — implementación Python con código completo
+- [[langgraph-js]] — implementación TypeScript/Node.js con código completo
+- [[langchain-python]] — LangChain base Python (tools, messages, modelos)
+- [[langchain-js]] — LangChain base JS/TS
+- [[concepts/langchain]] — framework base del ecosistema
+- [[concepts/multi-agent-frameworks]] — comparativa con CrewAI
 - [[crewai]] — framework alternativo (menor curva, menor control)
-- [[rag]] — LangGraph para Adaptive RAG
+- [[concepts/rag]] — LangGraph para Adaptive RAG
 - [[entities/gemini]] — LLM comúnmente usado con LangGraph
+- [[entities/langchain]] — entidad del ecosistema

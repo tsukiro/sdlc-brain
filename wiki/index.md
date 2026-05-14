@@ -38,6 +38,10 @@ Catálogo de todas las páginas del wiki. El LLM mantiene este archivo actualiza
 
 ### Frameworks de Orquestación
 - [[langgraph]] — LangGraph: StateGraph, nodes/edges, checkpointing, interrupts, primitivas (1 fuente)
+- [[langgraph-python]] — LangGraph Python: implementación completa, persistencia, HITL, streaming, memory store (2 fuentes)
+- [[langgraph-js]] — LangGraph.js/TypeScript: StateGraph, ToolNode, checkpointing, streaming en Node.js (1 fuente)
+- [[langchain-python]] — LangChain Python: messages, tools (@tool), agentes, interfaz multi-proveedor (1 fuente)
+- [[langchain-js]] — LangChain JS/TypeScript: instalación npm, Zod schemas, tools, agentes en Node.js (1 fuente)
 - [[crewai]] — CrewAI OSS: agents, tasks, crews, memoria, Agentic RAG (1 fuente)
 - [[gemini]] — Gemini 3 Pro/Flash, multimodalidad, Computer Use, embeddings multimodales (1 fuente)
 - [[computer-use]] — Anthropic Computer Use: agent loop, acciones, seguridad, WebArena SOTA (1 fuente)
@@ -78,7 +82,8 @@ Catálogo de todas las páginas del wiki. El LLM mantiene este archivo actualiza
 - [[concepts/prompt-injection]] — Prompt Injection: taxonomía completa, 9 vectores, mitigaciones en capas (5 fuentes)
 
 ### Frameworks
-- [[concepts/langgraph]] — LangGraph: arquitectura, primitivas, patrones multi-agent (1 fuente)
+- [[concepts/langchain]] — LangChain: framework base, messages, tools, models, instalación Python+JS, cuándo usar LangChain vs LangGraph (2 fuentes)
+- [[concepts/langgraph]] — LangGraph: arquitectura, primitivas, tabla de paridad Python vs JS (3 fuentes)
 - [[concepts/multi-agent-frameworks]] — LangGraph vs CrewAI: comparativa, cuándo elegir (2 fuentes)
 
 ### RAG y Chunking
@@ -92,6 +97,7 @@ Catálogo de todas las páginas del wiki. El LLM mantiene este archivo actualiza
 
 ## Entities
 
+- [[entities/langchain]] — LangChain (ecosistema): LangChain + LangGraph + LangSmith, paquetes Python y JS, adopción en producción (2 fuentes)
 - [[entities/gemini]] — Gemini (Google DeepMind): 3 Pro/Flash/2.x, capacidades, pricing (1 fuente)
 - [[entities/nemo-guardrails]] — NeMo Guardrails (NVIDIA): 5 rails, Colang, mitigación de prompt injection (1 fuente)
 - [[entities/outlines]] — Outlines (Normal Computing): constrained decoding a nivel de logits, FSM, garantía matemática (1 fuente)

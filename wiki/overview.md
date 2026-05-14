@@ -14,9 +14,9 @@ updated: 2026-05-13
 
 ## Estado actual
 
-- Fuentes procesadas: 26
-- Páginas wiki: 60
-- Último ingest: 2026-05-13 (Structured Generation / SDD: Outlines paper, Instructor, TypeChat, jxnl.co pipelines)
+- Fuentes procesadas: 31
+- Páginas wiki: 69
+- Último ingest: 2026-05-14 (LangChain + LangGraph Python y JS/TypeScript: implementación completa, persistencia, HITL, streaming)
 
 ---
 
@@ -54,7 +54,9 @@ STM (contexto) + LTM (vector DB = RAG). Ver [[concepts/agent-memory]].
 Pipeline completo. Chunking es el paso crítico (7 estrategias). Ver [[concepts/rag]], [[concepts/chunking]].
 
 ### 7. Frameworks de Orquestación
-LangGraph (producción) vs. CrewAI (prototipado). Ver [[concepts/multi-agent-frameworks]].
+**LangChain** (framework base: models, tools, messages) + **LangGraph** (orquestación stateful, producción) + **CrewAI** (crews, prototipado). Ambos Python y JS/TypeScript. Ver [[concepts/langchain]], [[concepts/langgraph]], [[concepts/multi-agent-frameworks]].
+
+**Regla práctica**: `create_react_agent` para agentes simples → `StateGraph` cuando se necesita control granular, estado persistente o HITL.
 
 ### 8. Evaluación de Agentes
 Trajectory evaluation, no zero-shot. BALROG para horizonte largo. LangSmith para producción. Ver [[concepts/agent-evaluation]].
@@ -95,7 +97,8 @@ SDLC
     │   └── Multi-Agent
     │
     ├── Frameworks
-    │   ├── LangGraph (grafos, producción, ~400 empresas)
+    │   ├── LangChain (base: models, tools, messages — Python + JS)
+    │   ├── LangGraph (grafos, producción, ~400 empresas — Python + JS)
     │   └── CrewAI (crews, prototipado, Agentic RAG)
     │
     ├── RAG Pipeline
