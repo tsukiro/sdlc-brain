@@ -1,0 +1,220 @@
+{
+  "main": {
+    "id": "51ade25cb34430a0",
+    "type": "split",
+    "children": [
+      {
+        "id": "a2c856c38955d2f3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9a67974b4db3bc51",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/analyses/agentic-patterns-diagramas.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "agentic-patterns-diagramas"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "059d6c2fd3fce829",
+    "type": "split",
+    "children": [
+      {
+        "id": "21c1d4e9e7c27e1a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f91b5cead68f259c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de archivos"
+            }
+          },
+          {
+            "id": "ecabd48b525532c0",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tesis",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Buscar"
+            }
+          },
+          {
+            "id": "d0e84c90a4b3a133",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Marcadores"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "86cda177047de114",
+    "type": "split",
+    "children": [
+      {
+        "id": "fa5391e38099adec",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "90982292146503a2",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "wiki/analyses/agentic-patterns-diagramas.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Enlaces entrantes de agentic-patterns-diagramas"
+            }
+          },
+          {
+            "id": "8b26856bc00ebc18",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "wiki/analyses/agentic-patterns-diagramas.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Enlaces salientes de agentic-patterns-diagramas"
+            }
+          },
+          {
+            "id": "18c314648ffd2979",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Etiquetas"
+            }
+          },
+          {
+            "id": "9a4c28361d9efad6",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Todas las propiedades"
+            }
+          },
+          {
+            "id": "8b1bfbc0530174ad",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "wiki/analyses/agentic-patterns-diagramas.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Esquema de agentic-patterns-diagramas"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir selector rápido": false,
+      "graph:Abrir vista gráfica": false,
+      "canvas:Crear nuevo lienzo": false,
+      "daily-notes:Abrir la nota de hoy": false,
+      "templates:Insertar plantilla": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "bases:Crear nueva base": false
+    }
+  },
+  "active": "9a67974b4db3bc51",
+  "lastOpenFiles": [
+    "wiki/overview.md",
+    "wiki/analyses/agentic-patterns-diagramas.md",
+    "wiki/analyses/sdlc-ia-flujo-recomendado.md",
+    "wiki/prompt-injection-architecture.md",
+    "sources/2026-05-13_prompt-injection-architectural-irreducibility.md",
+    "wiki/index.md",
+    "wiki/langgraph.md",
+    "wiki/reflexion-paper.md",
+    "wiki/log.md",
+    "CLAUDE.md",
+    "Bienvenido.md",
+    "wiki/nemo-guardrails.md",
+    "wiki/entities/nemo-guardrails.md",
+    "wiki/concepts/prompt-injection.md",
+    "wiki/learn-prompting-defense.md",
+    "wiki/simon-willison-2023.md",
+    "wiki/simon-willison-2022.md",
+    "wiki/owasp-llm01-detail.md",
+    "sources/2026-05-13_learn-prompting-defensive-measures.md",
+    "sources/2026-05-13_nemo-guardrails.md",
+    "sources/2026-05-13_simon-willison-indirect-injection-2023.md",
+    "sources/2026-05-13_simon-willison-prompt-injection-2022.md",
+    "sources/2026-05-13_owasp-llm01-prompt-injection.md",
+    "wiki/concepts/computer-use.md",
+    "wiki/concepts/llm-security.md",
+    "wiki/concepts/agent-evaluation.md",
+    "wiki/analyses",
+    "wiki/concepts",
+    "wiki/entities",
+    "wiki",
+    "sources"
+  ]
+}
