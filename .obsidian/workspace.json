@@ -186,6 +186,7 @@
   },
   "active": "9a67974b4db3bc51",
   "lastOpenFiles": [
+    "wiki/outlines-paper.md",
     "wiki/overview.md",
     "wiki/analyses/agentic-patterns-diagramas.md",
     "wiki/analyses/sdlc-ia-flujo-recomendado.md",
@@ -211,7 +212,6 @@
     "sources/2026-05-13_owasp-llm01-prompt-injection.md",
     "wiki/concepts/computer-use.md",
     "wiki/concepts/llm-security.md",
-    "wiki/concepts/agent-evaluation.md",
     "wiki/analyses",
     "wiki/concepts",
     "wiki/entities",
