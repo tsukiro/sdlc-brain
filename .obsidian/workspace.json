@@ -186,6 +186,7 @@
   },
   "active": "9a67974b4db3bc51",
   "lastOpenFiles": [
+    "wiki/langgraph-python.md",
     "wiki/langchain-js.md",
     "wiki/langchain-python.md",
     "wiki/concepts/structured-generation.md",
@@ -211,7 +212,6 @@
     "wiki/entities/nemo-guardrails.md",
     "wiki/concepts/prompt-injection.md",
     "wiki/learn-prompting-defense.md",
-    "wiki/simon-willison-2023.md",
     "wiki/analyses",
     "wiki/concepts",
     "wiki/entities",
