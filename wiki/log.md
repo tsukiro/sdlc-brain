@@ -132,6 +132,15 @@ Registro cronológico append-only de todas las operaciones del wiki.
 - Páginas creadas: [[outlines-paper]], [[instructor]], [[typechat]], [[jxnl-pipelines]], [[concepts/structured-generation]], [[entities/outlines]], [[entities/instructor]], [[entities/typechat]]
 - Páginas actualizadas: [[gemini]] (sección Structured Outputs nativos + Instructor), [[overview]] (tema 12 + 2 tensiones nuevas + mapa de conceptos), [[index]]
 
+## [2026-05-14] ingest | Control Vectors as Dispositional Traits — Calcagni (LessWrong)
+- Reencuadra los control vectors como "rasgos disposicionales"; propone 12 traits en 4 categorías (Anti-Optimizer, Core Beliefs, Communication, Work Ethos) como mínimo para LLM seguro
+- Variante PCA (vs. regresión logística de GCAV): ambas buscan el mismo eje semántico, son complementarias
+- Técnica de validación: comparar vectores de conceptos cercanos ("honestidad" vs "honestidad fingida") para auditar qué aprendió el modelo
+- Addendum crítico agosto 2025: Anthropic publicó Persona Vectors (arXiv 2507.21509) — control vectors en producción en frontier model
+- Pregunta abierta "Control Vectors listos para producción" marcada RESPONDIDA
+- Páginas creadas: [[calcagni-control-vectors]]
+- Páginas actualizadas: [[prompt-injection-architecture]] (Sección 3 ampliada: PCA, validación, ortogonalidad, Persona Vectors), [[overview]] (pregunta marcada respondida), [[index]]
+
 ## [2026-05-14] ingest | GCAV — Control Vectors para LLMs (arXiv 2501.05764, Zhang et al.)
 - Framework GCAV: entrena CAV con ~100 pares contrastivos vía regresión logística sobre activaciones del LLM; aplica steering dinámico (ε por input) durante inferencia sin modificar pesos
 - Resultados: 51% reducción de toxicidad (Llama-2-7b-chat), best-in-class en sentimiento y multi-concepto

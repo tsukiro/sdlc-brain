@@ -120,7 +120,17 @@ Proceso (implementación GCAV, Zhang et al. 2025):
 
 **Limitación crítica para producción:** requiere acceso a las activaciones internas del modelo. Solo viable con modelos open-source (Llama, Mistral) en infraestructura propia — no aplicable a APIs opacas (OpenAI, Anthropic Cloud).
 
-**Estado (enero 2025)**: testado en Llama-2-7B. No testado en modelos grandes (70B+) ni otras arquitecturas. En investigación activa. Ver [[gcav-paper]] para la implementación completa.
+**Dos implementaciones equivalentes:**
+- **GCAV** (Zhang et al., 2025): dirección normal del clasificador de regresión logística [[gcav-paper]]
+- **PCA-based** (Calcagni, 2024): dirección dominante de la matriz de pares contrastivos [[calcagni-control-vectors]]
+
+**Validación de vectores**: comparar `v_honestidad` con `v_honestidad_fingida` → si son similares, el modelo no distingue los conceptos. Permite auditar qué aprendió realmente el modelo.
+
+**Ortogonalidad**: la mayoría de control vectors son ortogonales entre sí → pueden combinarse simultáneamente sin interferencia (similar a la optimización multi-concepto de GCAV).
+
+**Producción (agosto 2025):** Anthropic publicó **Persona Vectors** (arXiv 2507.21509) — aplicación del concepto en un frontier model. Marca el paso de investigación activa a deployment en producción por parte de un laboratorio de primer nivel. Apple también usa una variante llamada *Activation Transport*.
+
+**Limitación crítica para producción:** requiere acceso a las activaciones del modelo (solo modelos open-source on-premise o propios). No aplicable a APIs opacas como GPT-4 vía OpenAI API.
 
 ---
 
@@ -166,6 +176,7 @@ Con Zero Trust + Ephemeral Containers:
 
 - [[concepts/prompt-injection]] — síntesis completa; este documento añade la capa arquitectural
 - [[gcav-paper]] — implementación concreta de Control Vectors: GCAV (Zhang et al., arXiv 2501.05764)
+- [[calcagni-control-vectors]] — framing de "rasgos disposicionales", PCA-based, análisis de safety, Anthropic Persona Vectors
 - [[simon-willison-2022]] — "mismo canal probabilístico" → base teórica del argumento Von Neumann
 - [[nemo-guardrails]] — solución de software (Rails); complementaria, no substitutiva
 - [[concepts/llm-security]] — marco de seguridad agéntica
