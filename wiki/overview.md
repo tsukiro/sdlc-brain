@@ -14,9 +14,9 @@ updated: 2026-05-13
 
 ## Estado actual
 
-- Fuentes procesadas: 35
-- Páginas wiki: 78
-- Último ingest: 2026-05-14 (LLM Wiki — Patrón Karpathy + caso MariaDB Labs)
+- Fuentes procesadas: 36
+- Páginas wiki: 79
+- Último ingest: 2026-05-14 (RAG sobre Confluence on-premise — WestTrain/Joshua Lee)
 
 ---
 

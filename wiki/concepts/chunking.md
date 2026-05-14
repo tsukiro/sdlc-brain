@@ -123,6 +123,8 @@ Práctica estándar: 10-20% del chunk size (chunk de 512t → 50-100t overlap).
 
 > **Tensión / caveat:** Análisis de enero 2026 (Firecrawl) sugiere que el overlap no provee beneficio medible en todos los casos. La práctica estándar sigue siendo recomendada como punto de partida, pero merece validación empírica en el contexto específico.
 
+**Dato de producción (WestTrain, 2025):** `chunk_size=400, chunk_overlap=100` — overlap del 25%, por encima del estándar. Corpus multilingüe (coreano + inglés); el contexto local extra puede justificarse cuando los chunks cambian de idioma mid-sentence.
+
 ## Métricas de evaluación
 
 | Métrica | Qué mide |
@@ -144,4 +146,5 @@ Práctica estándar: 10-20% del chunk size (chunk de 512t → 50-100t overlap).
 - [[rag]] — pipeline completo donde chunking es el primer paso
 - [[chunking-rag]] — fuente Firecrawl (comparativa detallada)
 - [[langchain-text-splitters]] — implementaciones concretas en LangChain
+- [[westtrain-rag-confluence]] — caso de estudio con chunk_size=400 + overlap=100 en producción multilingüe
 - [[entities/gemini]] — gemini-embedding-2-preview para el paso de embedding multimodal

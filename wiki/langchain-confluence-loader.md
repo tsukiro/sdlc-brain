@@ -126,9 +126,26 @@ retriever = vectorstore.as_retriever()
 
 ---
 
+## Alternativa: requests + BeautifulSoup (approach manual)
+
+Si se necesita **traversal recursivo** de sub-páginas o acceso al campo `body.storage.value` directamente, el approach manual con la API REST da más control:
+
+```python
+# El campo clave de la Confluence Cloud REST API:
+page["body"]["storage"]["value"]  # HTML — parsear con BeautifulSoup
+
+# Para expandir sub-páginas:
+# GET /rest/api/content/{id}/child/page
+```
+
+ConfluenceLoader abstrae este traversal, pero el approach manual permite lógica de selección más compleja.
+
+---
+
 ## Conexiones
 
 - [[concepts/rag]] — ConfluenceLoader como fuente de documentos para pipelines RAG
+- [[westtrain-rag-confluence]] — caso de estudio completo: requests + BeautifulSoup + ChromaDB + Mistral/Ollama
 - [[langchain-python]] — ConfluenceLoader es parte del ecosistema LangChain
 - [[langchain-text-splitters]] — siguiente paso: chunking de los Documents cargados
 - [[concepts/langchain]] — Document Loaders como categoría de componentes LangChain

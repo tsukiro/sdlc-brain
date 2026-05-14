@@ -132,6 +132,13 @@ Registro cronológico append-only de todas las operaciones del wiki.
 - Páginas creadas: [[outlines-paper]], [[instructor]], [[typechat]], [[jxnl-pipelines]], [[concepts/structured-generation]], [[entities/outlines]], [[entities/instructor]], [[entities/typechat]]
 - Páginas actualizadas: [[gemini]] (sección Structured Outputs nativos + Instructor), [[overview]] (tema 12 + 2 tensiones nuevas + mapa de conceptos), [[index]]
 
+## [2026-05-14] ingest | RAG sobre Confluence — Caso de estudio WestTrain (Joshua Lee)
+- Stack on-premise: Mistral vía Ollama + `intfloat/multilingual-e5-base` + ChromaDB + Confluence Cloud API
+- Hallazgos clave: MMR > similarity_search para corpus con redundancia; similarity thresholding como anti-alucinación; chunk_size=400 overlap=100 (25%) para contenido multilingüe
+- Técnica de debugging: cosine similarity entre query embedding y todos los vectores almacenados
+- Páginas creadas: [[westtrain-rag-confluence]]
+- Páginas actualizadas: [[concepts/rag]] (MMR, thresholding, on-premise, debugging), [[concepts/chunking]] (dato de producción multilingüe), [[langchain-confluence-loader]] (approach manual con requests+BeautifulSoup), [[index]]
+
 ## [2026-05-14] ingest | LLM Wiki — Patrón Karpathy + caso MariaDB Labs
 - Alternativa a RAG para corpus ≤400k tokens: compile-time synthesis, query-time context load (sin retrieval step)
 - MariaDB Labs (78 artículos / 265k palabras / ~1M tokens): P95 latencia 1100ms → 180ms (6×), costo $0.15 → $0.03 / 1000 queries (5×)

@@ -50,6 +50,7 @@ Catálogo de todas las páginas del wiki. El LLM mantiene este archivo actualiza
 - [[chunking-rag]] — Firecrawl: 7 estrategias, recall 64-92%, árbol de decisión (1 fuente)
 - [[langchain-text-splitters]] — LangChain: splitters, parámetros, pipeline RAG (1 fuente)
 - [[langchain-confluence-loader]] — ConfluenceLoader: carga páginas Confluence como Documents, autenticación cloud/on-prem, pipeline RAG (1 fuente)
+- [[westtrain-rag-confluence]] — WestTrain/Joshua Lee: caso RAG on-premise con Mistral/Ollama + ChromaDB + Confluence, MMR, similarity thresholding (1 fuente)
 
 ### Structured Generation / SDD (constrained decoding)
 - [[outlines-paper]] — Willard & Louf (2023): FSM + logit masking, base matemática de constrained decoding (1 fuente)
