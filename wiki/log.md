@@ -102,6 +102,18 @@ Registro cronológico append-only de todas las operaciones del wiki.
 - 9 diagramas: bucle Reflection, variante Reflexion, Tool Use, CoT, ReAct, ToT, árbol de decisión de técnicas, topologías Multi-Agent, composición unificada
 - Respuesta archivada en: [[analyses/agentic-patterns-diagramas]]
 
+## [2026-05-14] ingest | SDD Metodología — Piskala paper + Power Inversion/speckit + TOON format (3 documentos)
+- **Fuente 1:** Paper académico Deepak Babu Piskala — SDD como metodología (spec-first/anchored/as-source, workflow 4 fases, herramientas, casos de estudio)
+- **Fuente 2:** "The Power Inversion" — filosofía SDD + comandos /speckit.specify /speckit.plan /speckit.tasks + constitutional architecture
+- **Fuente 3:** "TOON format" — Token-Oriented Object Notation: 40-60% ahorro tokens vs JSON para arrays uniformes, Tabular Eligibility, estrategia híbrida
+- Hallazgo clave: "SDD" tiene dos significados distintos en este vault — resolver la ambigüedad fue el primer paso del ingest
+- Hallazgo clave (Piskala): human-refined specs reducen errores LLM en **~50%**; specs = "super-prompts" que permiten ejecución paralela de agentes
+- Hallazgo clave (TOON): JSON "syntax tax" = 40-60% de tokens en datos tabulares; TOON con TE>80% aumenta accuracy 70%→74%
+- Nueva tensión: SDD-metodología vs SDD-constrained decoding (mismo término, conceptos distintos)
+- Nueva tensión: TOON latencia vs ahorro de tokens en inferencia local (siempre medir TTFT)
+- Páginas creadas: [[sdd-piskala-paper]], [[sdd-power-inversion]], [[toon-format]], [[concepts/spec-driven-development]], [[entities/toon]]
+- Páginas actualizadas: [[overview]] (temas 13+14, tensiones 13-15, mapa de conceptos), [[index]]
+
 ## [2026-05-13] ingest | Structured Generation / SDD — Outlines, Instructor, TypeChat, jxnl.co (4 fuentes)
 - Fuentes: arXiv 2307.09702 (Willard & Louf), python.useinstructor.com, microsoft.github.io/TypeChat/, jxnl.co/writing/
 - Nota: jxnl.co URL devolvió 404; contenido reconstruido desde blog principal y ecosistema Instructor

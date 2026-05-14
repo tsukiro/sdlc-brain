@@ -14,9 +14,9 @@ updated: 2026-05-13
 
 ## Estado actual
 
-- Fuentes procesadas: 31
-- Páginas wiki: 69
-- Último ingest: 2026-05-14 (LangChain + LangGraph Python y JS/TypeScript: implementación completa, persistencia, HITL, streaming)
+- Fuentes procesadas: 34
+- Páginas wiki: 76
+- Último ingest: 2026-05-14 (SDD como metodología: Piskala paper + Power Inversion/speckit + TOON format)
 
 ---
 
@@ -70,8 +70,14 @@ Agentes que controlan GUIs. Anthropic (Claude) + Gemini 3. Ver [[concepts/comput
 ### 11. Gemini 3
 LLM frontier. Flash: mejor costo/calidad para producción. Soporta `response_schema` para structured outputs nativos. Ver [[entities/gemini]].
 
-### 12. Structured Generation / Spec-Driven Development (SDD)
+### 12. Structured Generation (SDD como constrained decoding)
 El paradigma que reemplaza prompt engineering frágil por contratos de datos garantizados. Dos niveles: Constrained Decoding en logits (Outlines) para modelos locales; validación + retry (Instructor/TypeChat) para APIs cloud. Aplicaciones: pipelines confiables, routing infalible en multi-agent, mitigación parcial de prompt injection. Ver [[concepts/structured-generation]].
+
+### 13. SDD como Metodología de Desarrollo
+Inversión de poder: la spec es el artefacto primario; el código es su expresión. Tres niveles de rigor: Spec-First (guía inicial), Spec-Anchored (sincronía mantenida con tests), Spec-as-Source (código generado, jamás editado). Workflow: Specify → Plan → Implement → Validate. Specs como "super-prompts" para AI agents: reduce errores en ~50%. Ver [[concepts/spec-driven-development]].
+
+### 14. TOON — Token Economy
+TOON (Token-Oriented Object Notation) reemplaza JSON en prompts LLM. Para arrays uniformes (logs, RAG chunks, catálogos), reduce tokens 40-60% con mayor accuracy de extracción. Estrategia: "JSON-In, TOON-Between, JSON-Out". Ver [[entities/toon]].
 
 ---
 
@@ -120,10 +126,18 @@ SDLC
     ├── LLMs
     │   └── Gemini 3 (Pro: #1 LMArena 1501 Elo; Flash: $0.50/1M)
     │
-    └── Structured Generation
-        ├── Nivel logits: Outlines (FSM + logit masking, garantía matemática)
-        ├── Nivel API: Instructor (Python/Pydantic) · TypeChat (TS/Microsoft)
-        └── Soporte nativo: OpenAI · Anthropic · Gemini (response_schema)
+    ├── Structured Generation (constrained decoding)
+    │   ├── Nivel logits: Outlines (FSM + logit masking, garantía matemática)
+    │   ├── Nivel API: Instructor (Python/Pydantic) · TypeChat (TS/Microsoft)
+    │   └── Soporte nativo: OpenAI · Anthropic · Gemini (response_schema)
+    │
+    ├── SDD — Metodología (Piskala 2025)
+    │   ├── Espectro: Spec-First → Spec-Anchored → Spec-as-Source
+    │   ├── Workflow: Specify → Plan → Implement → Validate
+    │   └── Herramientas: BDD (Cucumber) · OpenAPI · Specmatic · Kiro · Tessl
+    │
+    └── Token Economy
+        └── TOON: 40-60% menos tokens que JSON para arrays uniformes
 ```
 
 ---
@@ -142,6 +156,12 @@ SDLC
 10. **Mitigación vs. prevención**: todas las defensas contra prompt injection son probabilísticas, no deterministas
 
 ---
+
+## Tensiones nuevas (ingest SDD metodología + TOON)
+
+13. **SDD-metodología vs SDD-constrained decoding**: el término "SDD" se usa para dos cosas distintas. En este vault: [[concepts/spec-driven-development]] = workflow de desarrollo; [[concepts/structured-generation]] = constrained decoding de outputs LLM. No confundir.
+14. **Spec-Anchored overhead vs code-first velocidad**: mantener specs sincronizadas con código requiere disciplina real. Sin CI enforcement, degenera en documentación tradicional con drift.
+15. **TOON latencia vs ahorro de tokens**: para inferencia local con vLLM/Ollama, JSON tiene aceleración C++ que puede ganar en latencia aunque TOON use menos tokens. Siempre medir TTFT antes de migrar.
 
 ## Tensiones nuevas (ingest SDD)
 
