@@ -102,6 +102,14 @@ Registro cronológico append-only de todas las operaciones del wiki.
 - 9 diagramas: bucle Reflection, variante Reflexion, Tool Use, CoT, ReAct, ToT, árbol de decisión de técnicas, topologías Multi-Agent, composición unificada
 - Respuesta archivada en: [[analyses/agentic-patterns-diagramas]]
 
+## [2026-05-14] ingest | LangChain ConfluenceLoader (docs.langchain.com)
+- ConfluenceLoader: carga páginas Confluence como Document objects para pipelines RAG
+- Métodos de auth: username+api_key (cloud), PAT token (on-prem), OAuth2, cookies
+- Parámetros clave: page_ids, space_key, include_attachments, limit, max_pages
+- Ejemplo completo de integración en pipeline RAG (load → chunk → embed → retrieve)
+- Páginas creadas: [[langchain-confluence-loader]]
+- Páginas actualizadas: [[index]]
+
 ## [2026-05-14] ingest | SDD Metodología — Piskala paper + Power Inversion/speckit + TOON format (3 documentos)
 - **Fuente 1:** Paper académico Deepak Babu Piskala — SDD como metodología (spec-first/anchored/as-source, workflow 4 fases, herramientas, casos de estudio)
 - **Fuente 2:** "The Power Inversion" — filosofía SDD + comandos /speckit.specify /speckit.plan /speckit.tasks + constitutional architecture
