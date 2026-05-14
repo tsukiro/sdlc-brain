@@ -101,3 +101,13 @@ Registro cronológico append-only de todas las operaciones del wiki.
 ## [2026-05-13] query | Diagramas Mermaid de los 4 agentic design patterns
 - 9 diagramas: bucle Reflection, variante Reflexion, Tool Use, CoT, ReAct, ToT, árbol de decisión de técnicas, topologías Multi-Agent, composición unificada
 - Respuesta archivada en: [[analyses/agentic-patterns-diagramas]]
+
+## [2026-05-13] ingest | Structured Generation / SDD — Outlines, Instructor, TypeChat, jxnl.co (4 fuentes)
+- Fuentes: arXiv 2307.09702 (Willard & Louf), python.useinstructor.com, microsoft.github.io/TypeChat/, jxnl.co/writing/
+- Nota: jxnl.co URL devolvió 404; contenido reconstruido desde blog principal y ecosistema Instructor
+- Hallazgo clave: Constrained Decoding opera a nivel matemático (logit masking) — no depende del LLM para obedecer el schema
+- Hallazgo clave (Liu): "Good LLM Pipelines are just Good Software Engineering" — tipado + contratos + reintentos + observabilidad
+- Nueva tensión: Instructor (retry/API) vs. Outlines (logit masking/local) — distintos niveles de garantía
+- Nueva tensión: "Simple tools win" (Liu) vs. arquitecturas multi-agent — SDD como puente (outputs estructurados reducen el ruido de los hops)
+- Páginas creadas: [[outlines-paper]], [[instructor]], [[typechat]], [[jxnl-pipelines]], [[concepts/structured-generation]], [[entities/outlines]], [[entities/instructor]], [[entities/typechat]]
+- Páginas actualizadas: [[gemini]] (sección Structured Outputs nativos + Instructor), [[overview]] (tema 12 + 2 tensiones nuevas + mapa de conceptos), [[index]]

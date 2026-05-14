@@ -114,8 +114,13 @@ SDLC
     │   ├── Claude (Anthropic) — beta, WebArena SOTA
     │   └── Gemini 3 Pro/Flash — preview
     │
-    └── LLMs
-        └── Gemini 3 (Pro: #1 LMArena 1501 Elo; Flash: $0.50/1M)
+    ├── LLMs
+    │   └── Gemini 3 (Pro: #1 LMArena 1501 Elo; Flash: $0.50/1M)
+    │
+    └── Structured Generation
+        ├── Nivel logits: Outlines (FSM + logit masking, garantía matemática)
+        ├── Nivel API: Instructor (Python/Pydantic) · TypeChat (TS/Microsoft)
+        └── Soporte nativo: OpenAI · Anthropic · Gemini (response_schema)
 ```
 
 ---
@@ -132,6 +137,13 @@ SDLC
 8. **Zero-shot vs. agéntico**: GPT-3.5+agente > GPT-4 zero-shot; pero modelos avanzados en BALROG apenas llegan al 35%
 9. **Prompt Injection sin solución técnica**: SQL injection tiene solución (queries parametrizadas); prompt injection no — los LLMs no pueden distinguir arquitecturalmente instrucciones de datos
 10. **Mitigación vs. prevención**: todas las defensas contra prompt injection son probabilísticas, no deterministas
+
+---
+
+## Tensiones nuevas (ingest SDD)
+
+11. **Instructor (retry) vs. Outlines (logit masking)**: Instructor con APIs cloud no puede garantizar matemáticamente el schema si el proveedor no soporta constrained decoding nativo. Es validación probabilística con reintentos, no garantía formal.
+12. **Simple tools win (Liu) vs. arquitecturas multi-agent (LangGraph/CrewAI)**: Liu argumenta que multi-agent introduce ruido por "telephone game effect"; LangGraph y CrewAI están diseñados precisamente para multi-agent. La tensión se resuelve con SDD: si cada hop del multi-agent usa outputs estructurados, el ruido se reduce dramáticamente.
 
 ---
 
