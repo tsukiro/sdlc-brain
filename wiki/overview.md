@@ -14,9 +14,9 @@ updated: 2026-05-13
 
 ## Estado actual
 
-- Fuentes procesadas: 34
-- Páginas wiki: 76
-- Último ingest: 2026-05-14 (SDD como metodología: Piskala paper + Power Inversion/speckit + TOON format)
+- Fuentes procesadas: 35
+- Páginas wiki: 78
+- Último ingest: 2026-05-14 (LLM Wiki — Patrón Karpathy + caso MariaDB Labs)
 
 ---
 
@@ -79,6 +79,9 @@ Inversión de poder: la spec es el artefacto primario; el código es su expresi�
 ### 14. TOON — Token Economy
 TOON (Token-Oriented Object Notation) reemplaza JSON en prompts LLM. Para arrays uniformes (logs, RAG chunks, catálogos), reduce tokens 40-60% con mayor accuracy de extracción. Estrategia: "JSON-In, TOON-Between, JSON-Out". Ver [[entities/toon]].
 
+### 15. LLM Wiki (Patrón Karpathy)
+Alternativa a RAG para corpus que caben en el context window moderno: el LLM compila las fuentes una sola vez en un wiki markdown cross-referenciado; las queries cargan el wiki completo en contexto sin retrieval step. Caso MariaDB Labs (78 artículos / 265k palabras / ~1M tokens): latencia P95 de 1100ms → 180ms (6×) y costo de $0.15 → $0.03 / 1000 queries (5×). **Meta-nota:** este vault es la implementación viva del patrón. Ver [[concepts/llm-wiki]].
+
 ---
 
 ## Mapa de conceptos completo
@@ -136,8 +139,13 @@ SDLC
     │   ├── Workflow: Specify → Plan → Implement → Validate
     │   └── Herramientas: BDD (Cucumber) · OpenAPI · Specmatic · Kiro · Tessl
     │
-    └── Token Economy
-        └── TOON: 40-60% menos tokens que JSON para arrays uniformes
+    ├── Token Economy
+    │   └── TOON: 40-60% menos tokens que JSON para arrays uniformes
+    │
+    └── LLM Wiki (Patrón Karpathy)
+        ├── Compile time: LLM sintetiza fuentes → wiki markdown
+        ├── Query time: wiki completo en contexto (sin retrieval)
+        └── MariaDB Labs: 6× latencia, 5× costo vs RAG
 ```
 
 ---

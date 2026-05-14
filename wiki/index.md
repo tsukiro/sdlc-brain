@@ -62,6 +62,9 @@ Catálogo de todas las páginas del wiki. El LLM mantiene este archivo actualiza
 - [[sdd-power-inversion]] — Power Inversion: filosofía SDD, comandos speckit (/specify /plan /tasks), constitutional architecture (1 fuente)
 - [[toon-format]] — TOON: Token-Oriented Object Notation, 40-60% ahorro vs JSON, Tabular Eligibility, estrategia híbrida (1 fuente)
 
+### LLM Wiki
+- [[llm-wiki-karpathy]] — Karpathy + MariaDB Labs: compile-time wiki, 6× latencia y 5× costo vs RAG, 5 errores comunes (1 fuente)
+
 ---
 
 ## Concepts
@@ -101,6 +104,9 @@ Catálogo de todas las páginas del wiki. El LLM mantiene este archivo actualiza
 
 ### SDD — Metodología de desarrollo
 - [[concepts/spec-driven-development]] — SDD como metodología: espectro 3 niveles, workflow 4 fases, herramientas por categoría, árbol de decisión, relación TDD/BDD/DDD (3 fuentes)
+
+### LLM Wiki
+- [[concepts/llm-wiki]] — LLM Wiki vs RAG: árbol de decisión, compile/query time, propiedades, errores comunes (1 fuente)
 
 ---
 
