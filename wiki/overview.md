@@ -14,9 +14,9 @@ updated: 2026-05-13
 
 ## Estado actual
 
-- Fuentes procesadas: 36
-- Páginas wiki: 79
-- Último ingest: 2026-05-14 (RAG sobre Confluence on-premise — WestTrain/Joshua Lee)
+- Fuentes procesadas: 37
+- Páginas wiki: 80
+- Último ingest: 2026-05-14 (GCAV — Control Vectors para generación controlada en LLMs, arXiv 2501.05764)
 
 ---
 
@@ -187,6 +187,6 @@ SDLC
 - ¿Qué tan aplicable es el hallazgo de Computer Use de Anthropic a otros contextos (automatización de testing, CI/CD)?
 - ¿Cuándo los VLMs superarán a los LLMs de texto en toma de decisiones agéntica? (BALROG muestra que aún no)
 - **[RESPONDIDA]** ¿Existe solución arquitectural para prompt injection? → No al 100% (Von Neumann gap). Las soluciones robustas son Constrained Decoding + Dual LLM + Zero Trust, no prompt engineering. Ver [[prompt-injection-architecture]].
-- ¿Cuándo están los Control Vectors listos para producción? (2024-2025: investigación activa)
+- **[PARCIALMENTE RESPONDIDA]** ¿Cuándo están los Control Vectors listos para producción? → GCAV (Zhang et al., ene-2025) muestra resultados prometedores en Llama-2-7B: 51% reducción de toxicidad, multi-concepto estable. **Limitación crítica**: solo viable con modelos open-source en infraestructura propia; no aplicable a APIs cloud. No testado en modelos >7B. Usar en producción propia con modelos locales; no disponible para APIs opacas. Ver [[gcav-paper]].
 - ¿Cómo escala NeMo Guardrails en sistemas de alta latencia? ¿Cuándo el costo de los rails supera el beneficio de seguridad?
 - ¿Cómo auditar un sistema agéntico multi-tool para detectar vectores de indirect injection antes del deployment?

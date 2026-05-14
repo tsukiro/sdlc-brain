@@ -35,6 +35,7 @@ Catálogo de todas las páginas del wiki. El LLM mantiene este archivo actualiza
 - [[nemo-guardrails]] — NVIDIA NeMo: 5 rails, Colang DSL, integración LangChain (1 fuente)
 - [[learn-prompting-defense]] — Learn Prompting: 7 técnicas defensivas (Sandwich, XML Tagging, etc.) (1 fuente)
 - [[prompt-injection-architecture]] — Análisis arquitectural: Von Neumann gap, Constrained Decoding, Dual LLM, Control Vectors (1 fuente)
+- [[gcav-paper]] — Zhang et al. (arXiv 2501.05764): GCAV framework, CAV training, ε dinámico, 51% toxicity reduction, multi-concepto (1 fuente)
 
 ### Frameworks de Orquestación
 - [[langgraph]] — LangGraph: StateGraph, nodes/edges, checkpointing, interrupts, primitivas (1 fuente)

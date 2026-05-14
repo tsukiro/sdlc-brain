@@ -132,6 +132,14 @@ Registro cronológico append-only de todas las operaciones del wiki.
 - Páginas creadas: [[outlines-paper]], [[instructor]], [[typechat]], [[jxnl-pipelines]], [[concepts/structured-generation]], [[entities/outlines]], [[entities/instructor]], [[entities/typechat]]
 - Páginas actualizadas: [[gemini]] (sección Structured Outputs nativos + Instructor), [[overview]] (tema 12 + 2 tensiones nuevas + mapa de conceptos), [[index]]
 
+## [2026-05-14] ingest | GCAV — Control Vectors para LLMs (arXiv 2501.05764, Zhang et al.)
+- Framework GCAV: entrena CAV con ~100 pares contrastivos vía regresión logística sobre activaciones del LLM; aplica steering dinámico (ε por input) durante inferencia sin modificar pesos
+- Resultados: 51% reducción de toxicidad (Llama-2-7b-chat), best-in-class en sentimiento y multi-concepto
+- Limitación crítica: requiere acceso a activaciones → solo modelos open-source on-premise; no aplicable a APIs cloud
+- Pregunta abierta "Control Vectors listos para producción" marcada PARCIALMENTE RESPONDIDA
+- Páginas creadas: [[gcav-paper]]
+- Páginas actualizadas: [[prompt-injection-architecture]] (Sección 3 Control Vectors expandida con GCAV), [[overview]] (pregunta abierta actualizada), [[index]]
+
 ## [2026-05-14] ingest | RAG sobre Confluence — Caso de estudio WestTrain (Joshua Lee)
 - Stack on-premise: Mistral vía Ollama + `intfloat/multilingual-e5-base` + ChromaDB + Confluence Cloud API
 - Hallazgos clave: MMR > similarity_search para corpus con redundancia; similarity thresholding como anti-alucinación; chunk_size=400 overlap=100 (25%) para contenido multilingüe

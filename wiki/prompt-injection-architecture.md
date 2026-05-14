@@ -96,21 +96,31 @@ Con constrained decoding:
 
 ### 3. Control Vectors — ingeniería de representación
 
-**Nivel**: activaciones neuronales (estado de investigación activa)  
-**Concepto**: en lugar de decirle al modelo "no hagas X" (prompt engineering), se fuerza mecánicamente un estado interno defensivo
+**Nivel**: activaciones neuronales (investigación activa, resultados prometedores en ene-2025)  
+**Concepto**: en lugar de decirle al modelo "no hagas X" (prompt engineering), se fuerza mecánicamente un estado interno defensivo modificando los vectores de activación durante la inferencia
 
 ```
-Proceso:
-  1. Mapear el "estado de rechazo" en las capas ocultas (hidden states)
-     del modelo durante inferencia de ejemplo benignos/maliciosos
-  2. Calcular un "vector de control" que representa ese estado
-  3. Durante inferencia real: inyectar el vector en las activaciones neuronales
+Proceso (implementación GCAV, Zhang et al. 2025):
+  1. Crear ~100 pares de prompts contrastivos (tóxico vs. seguro)
+  2. Pasar por el LLM → recoger activaciones en cada capa
+  3. Entrenar regresión logística sobre las activaciones
+  4. El vector de concepto = dirección normal del clasificador:
+     v = w / ‖w‖
+  5. Durante inferencia: e' = e - ε · v_concepto
+     donde ε se calcula dinámicamente para cada input
   → El modelo permanece en estado defensivo mecánicamente
 ```
 
 **Por qué es diferente del RLHF/fine-tuning**: no cambia los pesos permanentemente — actúa en tiempo de inferencia. Más flexible y reversible que el fine-tuning.
 
-**Estado**: investigación activa (2024-2025). No es una solución de producción estándar aún.
+**Resultados empíricos (GCAV, Llama-2-7b-chat):**
+- Reducción de toxicidad: 51% vs. baseline (0.1807 → 0.0879)
+- Mejor que prompt engineering positivo y ActAdd (dirección fija)
+- Ventaja clave: ε dinámico por input vs. ε fijo en métodos anteriores — inputs con mayor toxicidad reciben mayor corrección
+
+**Limitación crítica para producción:** requiere acceso a las activaciones internas del modelo. Solo viable con modelos open-source (Llama, Mistral) en infraestructura propia — no aplicable a APIs opacas (OpenAI, Anthropic Cloud).
+
+**Estado (enero 2025)**: testado en Llama-2-7B. No testado en modelos grandes (70B+) ni otras arquitecturas. En investigación activa. Ver [[gcav-paper]] para la implementación completa.
 
 ---
 
@@ -155,6 +165,7 @@ Con Zero Trust + Ephemeral Containers:
 ## Conexiones
 
 - [[concepts/prompt-injection]] — síntesis completa; este documento añade la capa arquitectural
+- [[gcav-paper]] — implementación concreta de Control Vectors: GCAV (Zhang et al., arXiv 2501.05764)
 - [[simon-willison-2022]] — "mismo canal probabilístico" → base teórica del argumento Von Neumann
 - [[nemo-guardrails]] — solución de software (Rails); complementaria, no substitutiva
 - [[concepts/llm-security]] — marco de seguridad agéntica
