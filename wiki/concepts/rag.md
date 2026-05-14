@@ -50,6 +50,35 @@ La calidad del retrieval está limitada por la calidad del chunking. Un chunk de
 
 **Regla general**: Empieza con `RecursiveCharacterTextSplitter` a 400-512 tokens.
 
+## Técnicas de retrieval
+
+### similarity_search() vs max_marginal_relevance_search() (MMR)
+
+| Técnica | Criterio | Cuándo usar |
+|---|---|---|
+| `similarity_search()` | Máxima similitud al query | Corpus con poca redundancia; respuestas focalizadas |
+| `max_marginal_relevance_search()` | Similitud + diversidad (penaliza redundancia) | Múltiples docs cubren el mismo tema; corpus Confluence/Wiki |
+
+> MMR es preferible cuando varias páginas repiten la misma información con diferente wording — evita que el LLM reciba 5 chunks que dicen lo mismo. (WestTrain, 2025)
+
+### Similarity thresholding
+
+Si ningún chunk supera un umbral de similitud configurado → respuesta fallback ("No relevant information found") en lugar de enviar chunks irrelevantes al LLM. Es la forma más simple y efectiva de reducir alucinaciones en RAG.
+
+```python
+# Patrón de implementación
+results = vectorstore.similarity_search_with_score(query, k=5)
+if all(score < THRESHOLD for _, score in results):
+    return "No relevant information found."
+```
+
+### On-premise LLM para privacidad
+
+Para documentación interna confidencial, el stack completo puede correr on-premise:
+- **LLM:** Mistral, LLaMA 3, Phi-3 vía [Ollama](https://ollama.com/)
+- **Hardware mínimo:** NVIDIA RTX 3090 (24GB VRAM) para Mistral 7B
+- **Trade-off:** privacidad total vs capacidad reducida respecto a GPT-4/Claude
+
 ## Variantes avanzadas de RAG
 
 ### Adaptive RAG
@@ -85,10 +114,26 @@ Usar embeddings multimodales (como [[entities/gemini]] `gemini-embedding-2-previ
 - **Faithfulness**: ¿La respuesta está grounded en los chunks recuperados?
 - **Latency**: Tiempo total del pipeline
 
+## Debugging del pipeline RAG
+
+### Inspección de cosine similarity
+
+Cuando una query falla en recuperar contenido relevante, calcular la similitud directamente entre el embedding de la pregunta y todos los vectores almacenados revela si:
+- Los scores son globalmente bajos → problema de embedding o chunking
+- El contenido correcto existe pero está en posiciones bajas → problema de ranking/retrieval strategy
+
+```python
+from sklearn.metrics.pairwise import cosine_similarity
+# Embeddings de todos los docs vs embedding del query
+scores = cosine_similarity([query_embedding], all_doc_embeddings)
+```
+
 ## Conexiones
 
 - [[chunking]] — el paso más crítico del pipeline (estrategias detalladas)
 - [[langchain-text-splitters]] — implementaciones de splitting
+- [[langchain-confluence-loader]] — carga de páginas Confluence como Documents
+- [[westtrain-rag-confluence]] — caso de estudio completo: on-premise, MMR, thresholding
 - [[concepts/langgraph]] — Adaptive RAG con LangGraph
 - [[crewai]] — Agentic RAG integrado
 - [[entities/gemini]] — embeddings multimodales y generación
