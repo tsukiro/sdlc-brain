@@ -2,7 +2,7 @@
 title: "Overview"
 type: overview
 tags: [sdlc, agentes, rag, chunking, langgraph, crewai, gemini, planning, evaluación, seguridad, computer-use]
-sources: [2026-05-13_ibm-sdlc.md, 2026-05-13_aws-sdlc.md, 2026-05-13_atlassian-sdlc.md, 2026-05-13_langgraph.md, 2026-05-13_crewai.md, 2026-05-13_gemini.md, 2026-05-13_chunking-rag.md, 2026-05-13_langchain-text-splitters.md, 2026-05-13_lilian-weng-agents.md, 2026-05-13_andrew-ng-agentic-patterns.md, 2026-05-13_balrog.md, 2026-05-13_langsmith-evaluation.md, 2026-05-13_reflexion-paper.md, 2026-05-13_llm-agents-vulnerabilities.md, 2026-05-13_owasp-llm-top10.md, 2026-05-13_computer-use-anthropic.md, 2026-05-13_owasp-llm01-prompt-injection.md, 2026-05-13_simon-willison-prompt-injection-2022.md, 2026-05-13_simon-willison-indirect-injection-2023.md, 2026-05-13_nemo-guardrails.md, 2026-05-13_learn-prompting-defensive-measures.md]
+sources: [2026-05-13_ibm-sdlc.md, 2026-05-13_aws-sdlc.md, 2026-05-13_atlassian-sdlc.md, 2026-05-13_langgraph.md, 2026-05-13_crewai.md, 2026-05-13_gemini.md, 2026-05-13_chunking-rag.md, 2026-05-13_langchain-text-splitters.md, 2026-05-13_lilian-weng-agents.md, 2026-05-13_andrew-ng-agentic-patterns.md, 2026-05-13_balrog.md, 2026-05-13_langsmith-evaluation.md, 2026-05-13_reflexion-paper.md, 2026-05-13_llm-agents-vulnerabilities.md, 2026-05-13_owasp-llm-top10.md, 2026-05-13_computer-use-anthropic.md, 2026-05-13_owasp-llm01-prompt-injection.md, 2026-05-13_simon-willison-prompt-injection-2022.md, 2026-05-13_simon-willison-indirect-injection-2023.md, 2026-05-13_nemo-guardrails.md, 2026-05-13_learn-prompting-defensive-measures.md, arxiv-2307.09702, python.useinstructor.com, typechat-microsoft, jxnl.co]
 updated: 2026-05-13
 ---
 
@@ -14,9 +14,9 @@ updated: 2026-05-13
 
 ## Estado actual
 
-- Fuentes procesadas: 22
-- Páginas wiki: 51
-- Último ingest: 2026-05-13 (Prompt Injection — Irreducibilidad Arquitectural: Von Neumann, Constrained Decoding, Dual LLM, Control Vectors)
+- Fuentes procesadas: 26
+- Páginas wiki: 60
+- Último ingest: 2026-05-13 (Structured Generation / SDD: Outlines paper, Instructor, TypeChat, jxnl.co pipelines)
 
 ---
 
@@ -66,7 +66,10 @@ OWASP Top 10 LLM + evidencia empírica de Fang et al. + deep dive en Prompt Inje
 Agentes que controlan GUIs. Anthropic (Claude) + Gemini 3. Ver [[concepts/computer-use]].
 
 ### 11. Gemini 3
-LLM frontier. Flash: mejor costo/calidad para producción. Ver [[entities/gemini]].
+LLM frontier. Flash: mejor costo/calidad para producción. Soporta `response_schema` para structured outputs nativos. Ver [[entities/gemini]].
+
+### 12. Structured Generation / Spec-Driven Development (SDD)
+El paradigma que reemplaza prompt engineering frágil por contratos de datos garantizados. Dos niveles: Constrained Decoding en logits (Outlines) para modelos locales; validación + retry (Instructor/TypeChat) para APIs cloud. Aplicaciones: pipelines confiables, routing infalible en multi-agent, mitigación parcial de prompt injection. Ver [[concepts/structured-generation]].
 
 ---
 

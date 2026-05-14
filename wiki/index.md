@@ -46,6 +46,12 @@ Catálogo de todas las páginas del wiki. El LLM mantiene este archivo actualiza
 - [[chunking-rag]] — Firecrawl: 7 estrategias, recall 64-92%, árbol de decisión (1 fuente)
 - [[langchain-text-splitters]] — LangChain: splitters, parámetros, pipeline RAG (1 fuente)
 
+### Structured Generation / SDD
+- [[outlines-paper]] — Willard & Louf (2023): FSM + logit masking, base matemática de constrained decoding (1 fuente)
+- [[instructor]] — Instructor (Jason Liu): Pydantic como schema, 15+ proveedores, reintentos automáticos (1 fuente)
+- [[typechat]] — TypeChat (Microsoft): interfaces TypeScript como especificación LLM, compilador como validador (2 fuentes)
+- [[jxnl-pipelines]] — Jason Liu: LLM pipelines = software engineering; simple tools win, no multi-agents por defecto (1 fuente)
+
 ---
 
 ## Concepts
@@ -79,12 +85,18 @@ Catálogo de todas las páginas del wiki. El LLM mantiene este archivo actualiza
 - [[concepts/chunking]] — 7 estrategias con métricas, árbol de decisión (2 fuentes)
 - [[concepts/rag]] — Pipeline RAG: variantes (Adaptive/Agentic/Multimodal), stack 2026 (4 fuentes)
 
+### Structured Generation
+- [[concepts/structured-generation]] — Constrained Decoding / SDD: FSM+logit masking, Instructor/TypeChat, árbol de decisión, relación con seguridad (4 fuentes)
+
 ---
 
 ## Entities
 
 - [[entities/gemini]] — Gemini (Google DeepMind): 3 Pro/Flash/2.x, capacidades, pricing (1 fuente)
 - [[entities/nemo-guardrails]] — NeMo Guardrails (NVIDIA): 5 rails, Colang, mitigación de prompt injection (1 fuente)
+- [[entities/outlines]] — Outlines (Normal Computing): constrained decoding a nivel de logits, FSM, garantía matemática (1 fuente)
+- [[entities/instructor]] — Instructor (Jason Liu): librería Python #1 structured outputs, Pydantic, 15+ proveedores (1 fuente)
+- [[entities/typechat]] — TypeChat (Microsoft Research): interfaces TypeScript como schema LLM, compilador como validador (1 fuente)
 
 ---
 

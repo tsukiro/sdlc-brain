@@ -51,6 +51,22 @@ Sitio oficial de Google / Google DeepMind. Posiciona a Gemini como la familia fr
 | Gemini API | ai.google.dev | Desarrolladores, acceso programático |
 | Gemini en Google Search | search + AI Mode | Búsqueda aumentada con IA |
 
+## Structured Outputs nativos
+
+Gemini API soporta el parámetro `response_schema` para constrained generation — equivalente a OpenAI Structured Outputs. Acepta JSON Schema y restringe la respuesta del modelo a esa estructura. Compatible con [[entities/instructor]] via `instructor.from_provider("google/gemini-...")`.
+
+```python
+import instructor
+from pydantic import BaseModel
+
+class Resultado(BaseModel):
+    categoria: str
+    confianza: float
+
+client = instructor.from_provider("google/gemini-3-flash-preview")
+resultado = client.create(response_model=Resultado, messages=[...])
+```
+
 ## Conexiones
 
 - [[entities/gemini]] — página de entidad completa
@@ -58,3 +74,5 @@ Sitio oficial de Google / Google DeepMind. Posiciona a Gemini como la familia fr
 - [[concepts/multi-agent-frameworks]] — Gemini 3 Flash mencionado como LLM para agents
 - [[langgraph]] — Gemini es uno de los LLMs configurables en LangGraph
 - [[crewai]] — Gemini es uno de los LLMs configurables en CrewAI
+- [[concepts/structured-generation]] — Gemini soporta response_schema para outputs estructurados
+- [[entities/instructor]] — Instructor soporta Gemini como proveedor

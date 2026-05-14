@@ -186,6 +186,7 @@
   },
   "active": "9a67974b4db3bc51",
   "lastOpenFiles": [
+    "wiki/concepts/structured-generation.md",
     "wiki/entities/typechat.md",
     "wiki/entities/instructor.md",
     "wiki/entities/outlines.md",
@@ -211,7 +212,6 @@
     "wiki/simon-willison-2023.md",
     "wiki/simon-willison-2022.md",
     "wiki/owasp-llm01-detail.md",
-    "sources/2026-05-13_learn-prompting-defensive-measures.md",
     "wiki/analyses",
     "wiki/concepts",
     "wiki/entities",
