@@ -132,6 +132,17 @@ Registro cronológico append-only de todas las operaciones del wiki.
 - Páginas creadas: [[outlines-paper]], [[instructor]], [[typechat]], [[jxnl-pipelines]], [[concepts/structured-generation]], [[entities/outlines]], [[entities/instructor]], [[entities/typechat]]
 - Páginas actualizadas: [[gemini]] (sección Structured Outputs nativos + Instructor), [[overview]] (tema 12 + 2 tensiones nuevas + mapa de conceptos), [[index]]
 
+## [2026-05-14] ingest | AI Framework para Developer Experience — Jonathan Gelin (2026-01-12)
+- AI Framework como artefacto organizacional central: 7 componentes (Agents, Skills, MCPs, Prompts, Templates, Rules, Examples); efecto compuesto: cada mejora beneficia todos los casos de uso
+- 4 categorías de AI Tooling; 6 fases SDLC (Specify→Design→Develop→Validate→Release→Maintain) con aplicaciones concretas por fase
+- Claude Code identificado como implementación de referencia del AI Framework: MCP, Skills, Agents, Prompts, Commands, Hooks, LSP
+- Interview Mode como técnica de generación de specs: AI entrevista al developer para generar spec completa
+- MCP (Model Context Protocol) explicado como capa de integración entre AI agents y herramientas externas
+- BMAD Method: 5 agentes especializados (BA, PM, Architect, Developer, QA) para proyectos enterprise
+- Pregunta abierta MCP marcada PARCIALMENTE RESPONDIDA; Tema 16 añadido al overview
+- Páginas creadas: [[gelin-ai-framework]]
+- Páginas actualizadas: [[concepts/spec-driven-development]] (Interview Mode, BMAD), [[overview]] (Tema 16, pregunta MCP), [[index]]
+
 ## [2026-05-14] ingest | AI-Driven SDLC — Ran Isenberg (2026-02-03)
 - Tesis: adopción fragmentada de IA ralentiza equipos; gobernanza (MCP centralizado, prompt library, standardized skills) es condición necesaria para escalar
 - SDD como fundamento del AI-SDLC: artefactos acumulativos por fase, sub-flujo Plan→Validar→Ejecutar, humano valida intención de negocio
