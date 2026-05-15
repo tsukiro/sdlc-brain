@@ -323,6 +323,43 @@ RAG            (recuperación + generación — Lewis et al. 2021)
 | Multimodal CoT | Zhang et al. | 2023 |
 | GraphPrompt (GNNs) | Liu et al. | 2023 |
 | Function Calling | OpenAI GPT-4/3.5 fine-tuning | 2023 |
+| Context Caching | Google Gemini API | 2024 |
+
+---
+
+## 19. Context Caching
+
+**Fuente:** https://www.promptingguide.ai/applications/context-caching  
+**Contexto:** Funcionalidad de la Gemini API que cachea un contexto grande server-side, evitando re-enviarlo en cada query.
+
+### Mecanismo
+
+```python
+cache = caching.CachedContent.create(
+    model="gemini-1.5-flash-001",
+    name="ml-papers-cache",
+    system_instruction="Eres un experto investigador de IA...",
+    contents=[text_file],
+    ttl=datetime.timedelta(minutes=15)
+)
+model = genai.GenerativeModel.from_cached_content(cache)
+```
+
+El contenido se procesa una vez (KV states cacheados en el servidor). Las queries sucesivas reutilizan el cache sin re-enviar tokens. El TTL define la duración del cache.
+
+**Caso de uso:** DAIR-AI lo usó para analizar un año de papers ML almacenados en texto plano — consultas con lenguaje natural sobre el corpus sin re-enviarlo en cada request.
+
+### Posición en el paisaje de técnicas
+
+| Técnica | Para qué sirve | Limitación |
+|---------|---------------|-----------|
+| Context Caching | Corpus estático, misma sesión, KV reuse | Time-limited (TTL); no sintetiza |
+| LLM Wiki | Síntesis compilada; persistente entre sesiones | Requiere compilación previa |
+| RAG | Corpus dinámico; solo partes relevantes | Retrieval imperfecto; pipeline complejo |
+
+**Relación con LLM Wiki (Karpathy):** Ambos resuelven "carga estática + muchas queries". Context Caching opera a nivel de KV cache del servidor (dentro de una sesión, sin transformar el contenido); LLM Wiki sintetiza el conocimiento en markdown persistente y cross-referenced.
+
+Ver comparativa detallada en [[entities/gemini]].
 
 ---
 
@@ -402,3 +439,4 @@ La `description` es crítica: el LLM la usa para decidir cuándo invocar la func
 - [[lilian-weng-agents]] — ToT y ReAct desde perspectiva de agentes (Weng)
 - [[andrew-ng-agentic-patterns]] — ART relacionado con el Tool Use pattern (Ng)
 - [[reflexion-paper]] — Reflexion: arquitectura de 3 componentes, resultados AlfWorld, limitaciones
+- [[entities/gemini]] — Context Caching: sección detallada con API, comparativa vs. RAG vs. LLM Wiki

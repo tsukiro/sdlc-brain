@@ -220,3 +220,9 @@ Registro cronológico append-only de todas las operaciones del wiki.
 - Casos de uso: conversational agents, NLU/extracción, math solving, API integration, knowledge retrieval
 - Conexión con: ART (function calling como mecanismo de bajo nivel), ReAct (Actions vía function calls), Structured Generation (Instructor/TypeChat validan argumentos), Tool Use pattern (Ng)
 - Páginas actualizadas: [[promptingguide-techniques]] (sección 18 añadida; tabla papers actualizada), [[overview]], [[index]]
+
+## [2026-05-14] ingest | Prompt Engineering Guide — Context Caching con Gemini (DAIR-AI)
+- Mecanismo: `caching.CachedContent.create()` sube contexto a Gemini API → servidor cachea KV states → queries reutilizan sin re-enviar tokens; configurable con TTL
+- Caso demostrado: un año de papers ML en texto plano, consultas en lenguaje natural
+- Conexión conceptual: Context Caching vs. LLM Wiki (KV cache server-side temporal vs. síntesis compilada persistente) vs. RAG (corpus dinámico)
+- Páginas actualizadas: [[entities/gemini]] (sección Context Caching + comparativa vs. RAG vs. LLM Wiki; conexión a [[concepts/llm-wiki]]), [[promptingguide-techniques]] (sección 19 añadida; orden reajustado), [[overview]], [[index]] (contador actualizado)

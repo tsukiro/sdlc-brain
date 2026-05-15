@@ -122,7 +122,7 @@ Catálogo de todas las páginas del wiki. El LLM mantiene este archivo actualiza
 ## Entities
 
 - [[entities/langchain]] — LangChain (ecosistema): LangChain + LangGraph + LangSmith, paquetes Python y JS, adopción en producción (2 fuentes)
-- [[entities/gemini]] — Gemini (Google DeepMind): 3 Pro/Flash/2.x, capacidades, pricing (1 fuente)
+- [[entities/gemini]] — Gemini (Google DeepMind): 3 Pro/Flash/2.x, capacidades, pricing, Context Caching (comparativa vs. RAG vs. LLM Wiki) (2 fuentes)
 - [[entities/nemo-guardrails]] — NeMo Guardrails (NVIDIA): 5 rails, Colang, mitigación de prompt injection (1 fuente)
 - [[entities/outlines]] — Outlines (Normal Computing): constrained decoding a nivel de logits, FSM, garantía matemática (1 fuente)
 - [[entities/instructor]] — Instructor (Jason Liu): librería Python #1 structured outputs, Pydantic, 15+ proveedores (1 fuente)
