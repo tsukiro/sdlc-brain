@@ -20,7 +20,7 @@ Catálogo de todas las páginas del wiki. El LLM mantiene este archivo actualiza
 - [[isenberg-ai-sdlc]] — Ran Isenberg: AI-SDLC gobernado con SDD, MCP broker centralizado, flujo Jira→producción, desafíos de escala (1 fuente)
 - [[gelin-ai-framework]] — Jonathan Gelin: AI Framework como artefacto organizacional, 7 componentes, efecto compuesto, MCP, Claude Code como referencia, Interview Mode (1 fuente)
 - [[gelin-skills-format]] — Jonathan Gelin: Skills como npm de AI, anatomía YAML+markdown, progressive loading 3 niveles, convergencia cross-platform, ClawHub (1 fuente)
-- [[promptingguide-techniques]] — DAIR-AI: 17 técnicas (Zero-shot→GraphPrompt), jerarquía de prompting, 17 papers clave; APE, PAL, Active-Prompt, ReAct, Reflexion, Multimodal CoT (17 artículos)
+- [[promptingguide-techniques]] — DAIR-AI: 18 técnicas (Zero-shot→Function Calling), jerarquía de prompting, 17 papers + mechanism; APE, PAL, Active-Prompt, ReAct, Reflexion, Multimodal CoT, Function Calling (18 artículos)
 
 ### Agentes LLM — Fundamentos
 - [[lilian-weng-agents]] — Weng: Planning+Memory+Tools, CoT/ToT/ReAct/Reflexion, ANN, casos de uso (1 fuente)

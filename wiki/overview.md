@@ -14,9 +14,9 @@ updated: 2026-05-13
 
 ## Estado actual
 
-- Fuentes procesadas: 57
+- Fuentes procesadas: 58
 - Páginas wiki: 87
-- Último ingest: 2026-05-14 (Prompt Engineering Guide — 17 técnicas, DAIR-AI; 2º lote)
+- Último ingest: 2026-05-14 (Prompt Engineering Guide — Function Calling, DAIR-AI; 3º lote)
 
 ---
 

@@ -214,3 +214,9 @@ Registro cronológico append-only de todas las operaciones del wiki.
 - Correcciones: ReAct año 2022 (no 2023); Reflexion 3 componentes (Actor/Evaluator/Self-Reflection), AlfWorld 130/134
 - ART: confirmación "in a zero-shot fashion" + "excede prompts artesanales con feedback humano"
 - Páginas actualizadas: [[promptingguide-techniques]] (reescritura completa; 17 artículos, 17 papers), [[concepts/planning]] (PAL T10, APE T11; ReAct año fix + best-combo + ALFWorld/WebShop; Reflexion 3 componentes + AlfWorld 130/134; tabla expandida), [[overview]] (57 fuentes; Tema 4 Planning expandido a 11 técnicas), [[index]]
+
+## [2026-05-14] ingest | Prompt Engineering Guide — Function Calling (DAIR-AI)
+- Mecanismo: LLM fine-tuned detecta cuándo invocar → emite JSON con argumentos (JSON Schema) → aplicación ejecuta → LLM sintetiza respuesta final; distinción clave: el LLM no ejecuta, solo produce argumentos
+- Casos de uso: conversational agents, NLU/extracción, math solving, API integration, knowledge retrieval
+- Conexión con: ART (function calling como mecanismo de bajo nivel), ReAct (Actions vía function calls), Structured Generation (Instructor/TypeChat validan argumentos), Tool Use pattern (Ng)
+- Páginas actualizadas: [[promptingguide-techniques]] (sección 18 añadida; tabla papers actualizada), [[overview]], [[index]]

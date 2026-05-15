@@ -322,6 +322,75 @@ RAG            (recuperación + generación — Lewis et al. 2021)
 | Reflexion | Shinn et al. | 2023 |
 | Multimodal CoT | Zhang et al. | 2023 |
 | GraphPrompt (GNNs) | Liu et al. | 2023 |
+| Function Calling | OpenAI GPT-4/3.5 fine-tuning | 2023 |
+
+---
+
+## 18. Function Calling
+
+**Fuente:** https://www.promptingguide.ai/applications/function_calling  
+**Contexto:** Capacidad de los LLMs modernos (GPT-4, GPT-3.5) fine-tuneados para invocar herramientas de forma estructurada.
+
+### Mecanismo
+
+Function calling no es prompting puro — es una capacidad emergente del fine-tuning. El LLM aprende a:
+1. **Detectar** cuándo una query requiere una herramienta externa
+2. **Emitir** un JSON estructurado con los argumentos necesarios para llamar a la función
+3. La **aplicación** ejecuta la función real y devuelve el resultado al LLM
+4. El LLM **sintetiza** la respuesta final con el resultado
+
+**Distinción crítica:** El LLM no ejecuta la función — solo produce los argumentos. La ejecución es responsabilidad del código de la aplicación.
+
+```
+User query: "What is the weather like in London?"
+    ↓
+LLM detecta: necesita herramienta de clima
+    ↓ emite JSON:
+{"name": "get_current_weather", "arguments": {"location": "London", "unit": "celsius"}}
+    ↓
+Aplicación ejecuta get_current_weather(location="London", unit="celsius")
+    ↓ resultado devuelto al LLM
+LLM: "El tiempo en Londres es de 15°C con cielos nublados."
+```
+
+### Definición de función (JSON Schema)
+
+```python
+tools = [{
+    "type": "function",
+    "function": {
+        "name": "get_current_weather",
+        "description": "Get the current weather in a given location",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "location": {"type": "string", "description": "City and state, e.g. 'London, UK'"},
+                "unit":     {"type": "string", "enum": ["celsius", "fahrenheit"]}
+            },
+            "required": ["location"]
+        }
+    }
+}]
+```
+
+La `description` es crítica: el LLM la usa para decidir cuándo invocar la función. Funciona como un micro-prompt.
+
+### Casos de uso
+
+| Caso | Descripción |
+|------|-------------|
+| **Conversational agents** | Responder preguntas con datos en tiempo real (clima, bolsa, CRM) |
+| **NLU / extracción** | Convertir lenguaje natural en JSON estructurado; NER, sentiment analysis |
+| **Math problem solving** | Delegar cálculos complejos a funciones Python/Wolfram |
+| **API integration** | Natural language → API calls válidas |
+| **Knowledge retrieval** | Query reformulation para bases de conocimiento |
+
+### Relación con otras técnicas
+
+- **ART** ([[promptingguide-techniques]] sec. 9): formaliza CoT + tool calls con una Task Library; function calling es el mecanismo de bajo nivel que ART usa
+- **ReAct** ([[concepts/planning]]): el ciclo Thought → Action → Observation implementa los "Actions" vía function calling
+- **Structured Generation** ([[concepts/structured-generation]]): el JSON de función es structured output — Instructor/TypeChat pueden validar los argumentos antes de ejecutar
+- **Tool Use pattern** ([[concepts/agentic-design-patterns]]): function calling es la implementación técnica del patrón de Ng
 
 ---
 
