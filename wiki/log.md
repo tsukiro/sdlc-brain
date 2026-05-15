@@ -202,3 +202,9 @@ Registro cronológico append-only de todas las operaciones del wiki.
 - Meta-nota: este vault SDLC es la implementación viva del patrón descrito
 - Páginas creadas: [[llm-wiki-karpathy]], [[concepts/llm-wiki]]
 - Páginas actualizadas: [[overview]] (tema 15 + mapa de conceptos), [[index]]
+
+## [2026-05-14] ingest | Prompt Engineering Guide — 9 técnicas fundamentales (DAIR-AI)
+- Técnicas documentadas: Zero-shot (instruction tuning + RLHF), Few-shot (Brown 2020; Min 2022: formato > etiquetas), CoT (Wei + Kojima 2022; zero-shot CoT = "Let's think step by step"), Self-Consistency (Wang 2022; múltiples CoT + votación; +10-20 pts), Generated Knowledge (Liu 2022; dos fases), ToT (Yao 2023 + Long 2023; RL Controller), RAG (Lewis et al. 2021; paramétrico vs no-paramétrico), ART (Paranjape 2023; CoT + tools + Task Library; supera few-shot en BigBench + MMLU)
+- Prompt Chaining: artículo sin contenido procesable (placeholder de traducción)
+- Páginas creadas: [[promptingguide-techniques]], [[concepts/prompt-engineering]]
+- Páginas actualizadas: [[concepts/planning]] (Self-Consistency T7, Generated Knowledge T8, ART T9; Kojima 2022 para zero-shot CoT; Long 2023 para ToT; tabla comparativa expandida), [[concepts/rag]] (Lewis et al. 2021 como origen del paradigma), [[overview]] (tema 3b Prompt Engineering; tema 4 Planning expandido; mapa actualizado; contador 51 fuentes / 87 páginas), [[index]]

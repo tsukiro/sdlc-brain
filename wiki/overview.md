@@ -101,7 +101,7 @@ SDLC
 │
 └── Agentic AI
     ├── Arquitectura del Agente
-    │   ├── Planning (CoT / ToT / ReAct / Reflexion 91% HE / LLM+P)
+    │   ├── Planning (CoT / Self-Consistency / Generated Knowledge / ToT / ART / ReAct / Reflexion 91% HE / LLM+P)
     │   ├── Memory (STM = contexto / LTM = Vector DB + ANN = RAG)
     │   └── Tool Use (Function Calling / Computer Use)
     │
