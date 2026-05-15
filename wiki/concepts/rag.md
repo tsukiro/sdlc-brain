@@ -2,8 +2,8 @@
 title: "RAG — Retrieval-Augmented Generation"
 type: concept
 tags: [rag, retrieval, embeddings, chunking, llm, vector-db]
-sources: [2026-05-13_chunking-rag.md, 2026-05-13_langchain-text-splitters.md, 2026-05-13_langgraph.md, 2026-05-13_crewai.md]
-updated: 2026-05-13
+sources: [2026-05-13_chunking-rag.md, 2026-05-13_langchain-text-splitters.md, 2026-05-13_langgraph.md, 2026-05-13_crewai.md, promptingguide-techniques.md]
+updated: 2026-05-14
 ---
 
 # RAG — Retrieval-Augmented Generation
@@ -13,6 +13,18 @@ updated: 2026-05-13
 RAG es el patrón arquitectural que combina un sistema de **recuperación de información** (retrieval) con un **modelo generativo** (LLM). En lugar de depender solo del conocimiento del LLM, RAG le provee contexto relevante extraído de una base de conocimiento propia.
 
 **Problema que resuelve**: Los LLMs tienen conocimiento estático (hasta su fecha de corte), no conocen documentos privados, y alucina cuando no tiene información suficiente. RAG grunda las respuestas en fuentes verificables.
+
+## Origen del paradigma
+
+**Lewis et al. 2021** — "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks" (NeurIPS 2021): el paper que definió el paradigma.
+
+Modelo conceptual fundamental:
+- **Memoria paramétrica:** el conocimiento en los pesos del LLM (fija; solo actualizable via fine-tuning)
+- **Memoria no-paramétrica:** un índice vectorial denso consultable en tiempo de inferencia
+
+El paper original usó **DPR (Dense Passage Retrieval)** sobre un índice vectorial completo de Wikipedia. El generador seq2seq recibe los pasajes recuperados como contexto y produce respuestas grounded.
+
+Esta separación paramétrico/no-paramétrico sigue siendo el modelo mental correcto para RAG: el LLM aporta razonamiento y síntesis; el índice vectorial aporta conocimiento actualizado, privado o especializado.
 
 ## El pipeline clásico de RAG
 
@@ -138,3 +150,4 @@ scores = cosine_similarity([query_embedding], all_doc_embeddings)
 - [[crewai]] — Agentic RAG integrado
 - [[entities/gemini]] — embeddings multimodales y generación
 - [[chunking-rag]] — fuente primaria: Firecrawl blog
+- [[promptingguide-techniques]] — Lewis et al. 2021 como origen del paradigma (sección RAG como técnica de prompting)

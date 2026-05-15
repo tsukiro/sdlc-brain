@@ -14,9 +14,9 @@ updated: 2026-05-13
 
 ## Estado actual
 
-- Fuentes procesadas: 42
-- Páginas wiki: 85
-- Último ingest: 2026-05-14 (Skills — El nuevo formato de paquete para AI, Jonathan Gelin)
+- Fuentes procesadas: 51
+- Páginas wiki: 87
+- Último ingest: 2026-05-14 (Prompt Engineering Guide — 9 técnicas, DAIR-AI)
 
 ---
 
@@ -44,8 +44,11 @@ Planning + Memory + Tools (Weng) + Multi-Agent (Ng). Ver [[concepts/llm-agents]]
 ### 3. Los 4 Agentic Design Patterns
 Reflection, Tool Use, Planning, Multi-Agent. Se componen. Ver [[concepts/agentic-design-patterns]].
 
+### 3b. Prompt Engineering Fundamentos
+Zero-shot (instruction tuning + RLHF) y Few-shot (Brown et al. 2020 — in-context learning). Hallazgo clave: el formato de los ejemplos importa más que las etiquetas correctas (Min et al. 2022). Son la base de todas las técnicas de reasoning. Ver [[concepts/prompt-engineering]], [[promptingguide-techniques]].
+
 ### 4. Técnicas de Planning
-CoT, ToT, ReAct, Reflexion (91% HumanEval), LLM+P. Ver [[concepts/planning]].
+**9 técnicas documentadas**: CoT (Wei + Kojima 2022), Self-Consistency (Wang 2022; múltiples CoT + votación; +10–20 pts sobre greedy), Generated Knowledge (Liu 2022; dos fases), ToT (Yao + Long 2023; BFS/DFS), ReAct, ART (Paranjape 2023; CoT + herramientas + Task Library; supera few-shot en BigBench + MMLU), Reflexion (91% HumanEval), LLM+P, CoH. Ver [[concepts/planning]].
 
 ### 5. Memoria en Agentes
 STM (contexto) + LTM (vector DB = RAG). Ver [[concepts/agent-memory]].

@@ -250,7 +250,10 @@ El planning sigue siendo el componente más frágil de los agentes. Las técnica
 ## Conexiones
 
 - [[concepts/llm-agents]] — Planning como uno de los tres componentes del agente
-- [[concepts/agentic-design-patterns]] — Planning como uno de los cuatro patrones de Ng
+- [[concepts/agentic-design-patterns]] — Planning como uno de los cuatro patrones de Ng; ART relacionado con Tool Use
+- [[concepts/prompt-engineering]] — Zero-shot y Few-shot como fundamentos de CoT y todas las técnicas
 - [[concepts/langgraph]] — implementa ReAct y multi-step planning nativamente
 - [[crewai]] — planning via manager agent y task sequencing
-- [[lilian-weng-agents]] — fuente primaria de técnicas
+- [[lilian-weng-agents]] — fuente primaria de técnicas (Weng)
+- [[promptingguide-techniques]] — fuente de Self-Consistency, Generated Knowledge, ART, Zero-shot CoT (Kojima)
+- [[reflexion-paper]] — Reflexion como evolución de CoT con memoria persistente
