@@ -214,6 +214,7 @@ AI Agent
 
 ## Conexiones
 
+- [[gelin-skills-format]] — deep-dive técnico en Skills: anatomía, progressive loading (3 niveles), convergencia cross-platform, composición, ClawHub
 - [[isenberg-ai-sdlc]] — misma problemática (gobernanza, SDD como base) con más detalle en el flujo organizacional; Gelin añade el concepto de AI Framework como artefacto central
 - [[snyk-ai-sdlc]] — perspectiva táctica por fase; Gelin añade la capa de framework
 - [[concepts/spec-driven-development]] — SDD es el enabler de la fase Specify; Interview Mode como técnica concreta

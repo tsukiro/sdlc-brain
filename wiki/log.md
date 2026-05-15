@@ -132,6 +132,15 @@ Registro cronológico append-only de todas las operaciones del wiki.
 - Páginas creadas: [[outlines-paper]], [[instructor]], [[typechat]], [[jxnl-pipelines]], [[concepts/structured-generation]], [[entities/outlines]], [[entities/instructor]], [[entities/typechat]]
 - Páginas actualizadas: [[gemini]] (sección Structured Outputs nativos + Instructor), [[overview]] (tema 12 + 2 tensiones nuevas + mapa de conceptos), [[index]]
 
+## [2026-05-14] ingest | Skills — El nuevo formato de paquete para AI (Gelin, 2026-02-23)
+- Skills como "npm de AI agents": YAML frontmatter + markdown instructions + optional resources + triggers; formato convergente en OpenClaw, Claude Agent Skills y Cursor Rules
+- Arquitectura técnica de 3 niveles: metadata (siempre), instructions (on trigger), resources (on demand) → solución al context window sin limitar profundidad
+- Patrones de composición: orquestador + sub-skills, workflow multi-step, skill de contexto puro (solo conocimiento de dominio)
+- ClawHub como registry de skills (análogo a npm para JavaScript)
+- Desafíos: seguridad (sandboxing), calidad, fragmentación de plataformas
+- Páginas creadas: [[gelin-skills-format]]
+- Páginas actualizadas: [[gelin-ai-framework]] (Skills expandido con progressive loading y link al deep-dive), [[overview]], [[index]]
+
 ## [2026-05-14] ingest | AI Framework para Developer Experience — Jonathan Gelin (2026-01-12)
 - AI Framework como artefacto organizacional central: 7 componentes (Agents, Skills, MCPs, Prompts, Templates, Rules, Examples); efecto compuesto: cada mejora beneficia todos los casos de uso
 - 4 categorías de AI Tooling; 6 fases SDLC (Specify→Design→Develop→Validate→Release→Maintain) con aplicaciones concretas por fase

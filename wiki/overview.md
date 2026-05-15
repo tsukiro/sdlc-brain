@@ -14,9 +14,9 @@ updated: 2026-05-13
 
 ## Estado actual
 
-- Fuentes procesadas: 41
-- Páginas wiki: 84
-- Último ingest: 2026-05-14 (AI Framework para Developer Experience — Jonathan Gelin, smartsdlc.dev)
+- Fuentes procesadas: 42
+- Páginas wiki: 85
+- Último ingest: 2026-05-14 (Skills — El nuevo formato de paquete para AI, Jonathan Gelin)
 
 ---
 
