@@ -182,6 +182,7 @@
   },
   "active": "9a67974b4db3bc51",
   "lastOpenFiles": [
+    "wiki/gelin-ai-framework.md",
     "wiki/isenberg-ai-sdlc.md",
     "wiki/snyk-ai-sdlc.md",
     "wiki/overview.md",
@@ -207,7 +208,6 @@
     "wiki/analyses/agentic-patterns-diagramas.md",
     "wiki/entities/typechat.md",
     "wiki/entities/instructor.md",
-    "wiki/entities/outlines.md",
     "wiki/analyses",
     "wiki/concepts",
     "wiki/entities",

@@ -140,6 +140,22 @@ Feature: Shopping Cart
 - **GitHub Spec Kit** — `/specify` → `/plan` → `/tasks` → implementación
 - **Amazon Kiro** — requirements → design → tasks antes de cualquier código
 - **Tessl** — spec-as-source radical; "specs as the new source code"
+- **BMAD Method** — 5 agentes especializados (BA, PM, Architect, Developer, QA); output de cada agente alimenta al siguiente
+
+### Técnica: Interview Mode para generación de specs
+
+En lugar de escribir la spec desde cero, pedir al AI que te entreviste:
+
+```markdown
+read this @SPEC.md and interview me in detail about literally anything:
+technical implementation, UI & UX, concerns, tradeoffs, etc.
+but make sure the questions are not obvious
+
+be very in-depth and continue interviewing me continually until it's complete,
+then write the spec to the file
+```
+
+El AI hace preguntas profundas sobre edge cases, decisiones técnicas y UX → genera una spec completa desde la conversación. Separa el "saber qué se quiere" (humano) del "saber cómo formalizarlo" (AI).
 
 ---
 

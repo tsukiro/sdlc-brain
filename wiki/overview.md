@@ -14,9 +14,9 @@ updated: 2026-05-13
 
 ## Estado actual
 
-- Fuentes procesadas: 40
-- Páginas wiki: 83
-- Último ingest: 2026-05-14 (AI-Driven SDLC — Ran Isenberg 2026)
+- Fuentes procesadas: 41
+- Páginas wiki: 84
+- Último ingest: 2026-05-14 (AI Framework para Developer Experience — Jonathan Gelin, smartsdlc.dev)
 
 ---
 
@@ -78,6 +78,9 @@ Inversión de poder: la spec es el artefacto primario; el código es su expresi�
 
 ### 14. TOON — Token Economy
 TOON (Token-Oriented Object Notation) reemplaza JSON en prompts LLM. Para arrays uniformes (logs, RAG chunks, catálogos), reduce tokens 40-60% con mayor accuracy de extracción. Estrategia: "JSON-In, TOON-Between, JSON-Out". Ver [[entities/toon]].
+
+### 16. AI Framework como Artefacto Organizacional
+El AI Framework encapsula el conocimiento de la organización (agents, skills, MCPs, prompts, rules, templates, examples) en un artefacto vivo que todos los tools AI consumen. No es un producto — se construye y mantiene internamente. **Efecto compuesto**: cada mejora beneficia todos los casos de uso inmediatamente. MCP (Model Context Protocol) es la capa de integración que conecta el framework con herramientas externas (Jira, Git, Nx, DBs). Claude Code es la implementación de referencia de este patrón. Ver [[gelin-ai-framework]].
 
 ### 15. LLM Wiki (Patrón Karpathy)
 Alternativa a RAG para corpus que caben en el context window moderno: el LLM compila las fuentes una sola vez en un wiki markdown cross-referenciado; las queries cargan el wiki completo en contexto sin retrieval step. Caso MariaDB Labs (78 artículos / 265k palabras / ~1M tokens): latencia P95 de 1100ms → 180ms (6×) y costo de $0.15 → $0.03 / 1000 queries (5×). **Meta-nota:** este vault es la implementación viva del patrón. Ver [[concepts/llm-wiki]].
@@ -186,7 +189,7 @@ SDLC
 
 ## Preguntas abiertas (actualizadas)
 
-- ¿Cómo implementar un Centralized MCP Broker en entornos enterprise? (gap: no hay página de MCP en el wiki)
+- **[PARCIALMENTE RESPONDIDA]** ¿Cómo implementar un Centralized MCP Broker? → MCP conecta AI agents con herramientas externas (Jira, Git, Nx, DBs) vía Model Context Protocol. La gobernanza requiere un broker centralizado que solo exponga servicios aprobados. Claude Code es la implementación de referencia con el sistema de plugins/MCP. Ver [[gelin-ai-framework]] y [[isenberg-ai-sdlc]]. Gap pendiente: no hay página de entidad para MCP en el wiki.
 - ¿Cómo se integra LangSmith/evaluación en el CI/CD de sistemas agénticos?
 - ¿Cuándo justifica el overhead de Reflexion (múltiples intentos) el gain de calidad?
 - ¿Cuál es el trade-off óptimo entre autonomía del agente y HITL para diferentes tipos de tarea?

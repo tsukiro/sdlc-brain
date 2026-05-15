@@ -18,6 +18,7 @@ Catálogo de todas las páginas del wiki. El LLM mantiene este archivo actualiza
 - [[atlassian-sdlc]] — Atlassian: 7 fases, frameworks Agile (Scrum/Kanban/Lean/XP), Jira (1 fuente)
 - [[snyk-ai-sdlc]] — Snyk/Thoemmes: SDLC con IA por fase, tabla traditional vs AI, implementación incremental, Gartner 2028 (1 fuente)
 - [[isenberg-ai-sdlc]] — Ran Isenberg: AI-SDLC gobernado con SDD, MCP broker centralizado, flujo Jira→producción, desafíos de escala (1 fuente)
+- [[gelin-ai-framework]] — Jonathan Gelin: AI Framework como artefacto organizacional, 7 componentes, efecto compuesto, MCP, Claude Code como referencia, Interview Mode (1 fuente)
 
 ### Agentes LLM — Fundamentos
 - [[lilian-weng-agents]] — Weng: Planning+Memory+Tools, CoT/ToT/ReAct/Reflexion, ANN, casos de uso (1 fuente)
