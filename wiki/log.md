@@ -132,6 +132,16 @@ Registro cronológico append-only de todas las operaciones del wiki.
 - Páginas creadas: [[outlines-paper]], [[instructor]], [[typechat]], [[jxnl-pipelines]], [[concepts/structured-generation]], [[entities/outlines]], [[entities/instructor]], [[entities/typechat]]
 - Páginas actualizadas: [[gemini]] (sección Structured Outputs nativos + Instructor), [[overview]] (tema 12 + 2 tensiones nuevas + mapa de conceptos), [[index]]
 
+## [2026-05-14] ingest | AI-Driven SDLC — Ran Isenberg (2026-02-03)
+- Tesis: adopción fragmentada de IA ralentiza equipos; gobernanza (MCP centralizado, prompt library, standardized skills) es condición necesaria para escalar
+- SDD como fundamento del AI-SDLC: artefactos acumulativos por fase, sub-flujo Plan→Validar→Ejecutar, humano valida intención de negocio
+- 5 capas de gobernanza: Standardized Skills, Team Extension Skills, Centralized MCP Broker, Shared Prompt Library, Incident Response Agents
+- Flujo Jira→producción (10 pasos) con agentes especializados (FinOps, security, code quality) y validación humana en puntos clave
+- Desafíos SDD en producción: overhead de proceso, specs más difíciles de revisar que código, agentes que ignoran specs, overkill para tareas pequeñas
+- Gap identificado: no hay página de MCP (Model Context Protocol) en el wiki
+- Páginas creadas: [[isenberg-ai-sdlc]]
+- Páginas actualizadas: [[concepts/spec-driven-development]] (desafíos de producción, BMAD, Isenberg), [[overview]] (tensiones 16-18, pregunta abierta MCP), [[index]]
+
 ## [2026-05-14] ingest | AI in SDLC — Snyk / Stephen Thoemmes (2025-12-09)
 - Nota: IBM URL (https://www.ibm.com/think/topics/ai-in-sdlc) solo cargó muro de cookies/consent frame — sin contenido extraíble; no se creó source-summary para esa URL
 - Tabla comparativa Traditional vs AI-enhanced SDLC (9 dimensiones); IA por fase con nivel de madurez 2025

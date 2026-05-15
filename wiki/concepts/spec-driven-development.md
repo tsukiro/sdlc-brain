@@ -212,6 +212,7 @@ Evidencia de adopción real con AI coding agents en entornos enterprise:
 
 - [[sdd-piskala-paper]] — paper académico fundacional de este concepto
 - [[sdd-power-inversion]] — filosofía SDD + comandos speckit
+- [[isenberg-ai-sdlc]] — SDD como fundamento del AI-SDLC gobernado; desafíos de producción con AI agents
 - [[concepts/structured-generation]] — **diferente**: SDD como constrained decoding (outputs LLM)
 - [[concepts/agentic-design-patterns]] — SDD + patterns agénticos (self-spec = Reflection pattern)
 - [[jxnl-pipelines]] — filosofía complementaria: specs son la ingeniería de software correcta

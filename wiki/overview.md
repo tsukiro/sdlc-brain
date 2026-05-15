@@ -14,9 +14,9 @@ updated: 2026-05-13
 
 ## Estado actual
 
-- Fuentes procesadas: 39
-- Páginas wiki: 82
-- Último ingest: 2026-05-14 (AI in SDLC — Snyk/Thoemmes 2025)
+- Fuentes procesadas: 40
+- Páginas wiki: 83
+- Último ingest: 2026-05-14 (AI-Driven SDLC — Ran Isenberg 2026)
 
 ---
 
@@ -165,6 +165,12 @@ SDLC
 
 ---
 
+## Tensiones nuevas (ingest AI-SDLC)
+
+16. **Gobernanza vs. velocidad de adopción de IA**: la adopción fragmentada de IA (vibe coding, tools distintos por equipo, sin MCP centralizado) crea deuda técnica y riesgo de seguridad. La gobernanza (MCP broker, prompt library, standardized skills) es condición necesaria para escalar pero introduce fricción inicial. Sin gobernanza, la IA ralentiza en lugar de acelerar.
+17. **SDD overhead vs. valor para tareas pequeñas**: SDD aporta valor claro en features complejas con múltiples agentes; es overkill para tareas simples. Las best practices de cuándo usar SDD no están consolidadas aún (requiere trial-and-error por equipo).
+18. **PRs generados por IA como bottleneck de review**: velocidad alta de generación → PRs masivos difíciles de revisar. Solución: mantener PRs pequeños + agentes de review especializados. El humano valida intención de negocio; los agentes validan calidad técnica.
+
 ## Tensiones nuevas (ingest SDD metodología + TOON)
 
 13. **SDD-metodología vs SDD-constrained decoding**: el término "SDD" se usa para dos cosas distintas. En este vault: [[concepts/spec-driven-development]] = workflow de desarrollo; [[concepts/structured-generation]] = constrained decoding de outputs LLM. No confundir.
@@ -180,6 +186,7 @@ SDLC
 
 ## Preguntas abiertas (actualizadas)
 
+- ¿Cómo implementar un Centralized MCP Broker en entornos enterprise? (gap: no hay página de MCP en el wiki)
 - ¿Cómo se integra LangSmith/evaluación en el CI/CD de sistemas agénticos?
 - ¿Cuándo justifica el overhead de Reflexion (múltiples intentos) el gain de calidad?
 - ¿Cuál es el trade-off óptimo entre autonomía del agente y HITL para diferentes tipos de tarea?
