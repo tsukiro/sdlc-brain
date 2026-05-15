@@ -182,6 +182,7 @@
   },
   "active": "9a67974b4db3bc51",
   "lastOpenFiles": [
+    "wiki/promptingguide-applications-data.md",
     "wiki/promptingguide-risks.md",
     "wiki/promptingguide-introduction.md",
     "wiki/concepts/planning.md",
@@ -207,7 +208,6 @@
     "wiki/entities/langchain.md",
     "wiki/concepts/langchain.md",
     "wiki/langgraph-js.md",
-    "wiki/langgraph-python.md",
     "wiki/analyses",
     "wiki/concepts",
     "wiki/entities",
