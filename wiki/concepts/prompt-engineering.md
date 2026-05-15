@@ -1,8 +1,8 @@
 ---
 title: "Prompt Engineering — Fundamentos"
 type: concept
-tags: [prompt-engineering, zero-shot, few-shot, in-context-learning, instruction-tuning, rlhf]
-sources: [promptingguide-techniques.md]
+tags: [prompt-engineering, zero-shot, few-shot, in-context-learning, instruction-tuning, rlhf, prompt-elements, prompt-design]
+sources: [promptingguide-techniques.md, promptingguide-introduction.md]
 updated: 2026-05-14
 ---
 
@@ -68,6 +68,71 @@ El conocimiento de "qué etiqueta va con qué input" viene del **pretraining**, 
 - Tokens de context window consumidos por ejemplos (costo de contexto)
 - Sensible al orden de los ejemplos y a su elección
 - Para tasks muy específicos puede ser insuficiente → considerar fine-tuning
+
+---
+
+## Elementos de un Prompt
+
+Un prompt efectivo puede componerse de hasta 4 elementos:
+
+| Componente | Función | Obligatorio |
+|---|---|---|
+| **Instruction** | La tarea específica que el modelo debe realizar | Siempre |
+| **Context** | Información externa que orienta hacia mejores respuestas | No (mejora consistencia) |
+| **Input Data** | El dato o pregunta a procesar | Cuando aplica |
+| **Output Indicator** | El tipo o formato del output esperado | No (ayuda al formato) |
+
+**Ejemplo (clasificación de sentimiento):**
+```
+Instruction:      Classify the text into neutral, negative or positive.
+Input Data:       I think the food was okay.
+Output Indicator: Sentiment:
+```
+
+La fórmula es flexible: no todos los elementos son necesarios en todos los casos. La estructura se adapta al caso de uso.
+
+---
+
+## Tips de Diseño
+
+### Tip 1 — Empezar simple e iterar
+
+El prompt engineering es iterativo: prompt básico → añadir elementos → medir → refinar. Romper tareas complejas en subtareas antes de escalar.
+
+### Tip 2 — Instrucciones explícitas con verbos de comando
+
+Colocar la instrucción al **inicio** del prompt. Verbos efectivos: `Write`, `Classify`, `Summarize`, `Translate`, `Order`, `Explain`.
+
+Usar separadores claros entre instrucción y contexto:
+```
+### Instruction ###
+Clasifica el texto en positivo, negativo o neutral.
+
+Text: {input}
+Sentiment:
+```
+
+### Tip 3 — Especificidad sobre vaguedad
+
+| ❌ Vago | ✓ Específico |
+|---------|-------------|
+| "Explain prompt engineering. Keep it short." | "Use 2-3 sentences to explain prompt engineering to a high school student." |
+| "Summarize this article." | "Write a 3-bullet summary of the key findings for a technical audience." |
+
+Especificaciones claras (número de oraciones, nivel de audiencia, formato) → resultados predecibles.
+
+### Tip 4 — Do vs. Don't: el efecto perverso de las prohibiciones
+
+**Hallazgo empírico contraintuitivo:** Las prohibiciones ("DO NOT ask for X") frecuentemente producen el comportamiento prohibido. El modelo procesa la acción mencionada incluso en contexto negativo.
+
+**Ejemplo documentado:** El prompt `"DO NOT ASK FOR INTERESTS"` llevó al agente a preguntar sobre intereses del usuario — exactamente lo contrario de lo instruido.
+
+**Solución:** Reemplazar prohibiciones con instrucciones afirmativas que describan el comportamiento deseado.
+
+| ❌ Prohibición (frágil) | ✓ Instrucción positiva (robusta) |
+|------------------------|--------------------------------|
+| `"DO NOT ASK FOR INTERESTS"` | `"Ask only for the user's name, then recommend a recipe based on common preferences."` |
+| `"Don't make the explanation too long."` | `"Explain in exactly 2 sentences."` |
 
 ---
 

@@ -140,6 +140,37 @@ from sklearn.metrics.pairwise import cosine_similarity
 scores = cosine_similarity([query_embedding], all_doc_embeddings)
 ```
 
+## Generación de Datasets Sintéticos para RAG (Dai et al. 2022)
+
+**Problema:** Los proyectos RAG sufren cuellos de botella por escasez de datos etiquetados para los sistemas de recuperación. LLMs permiten prototipar antes de iniciar procesos formales de etiquetado.
+
+### Técnica
+
+1. Preparar **15–20 ejemplos manuales** de pares (documento, query relevante)
+2. Seleccionar aleatoriamente **2–8 por prompt** (la aleatorización aumenta diversidad del dataset)
+3. El LLM genera queries sintéticas para cada nuevo documento del corpus
+
+```
+Instrucción específica de tarea de recuperación
++ k ejemplos (documento + query anotada)
++ Nuevo documento
+→ LLM genera queries relevantes para el nuevo documento
+```
+
+### Resultados
+
+| Métrica | Valor |
+|---------|-------|
+| Ejemplos manuales requeridos | **8** |
+| Costo para 50,000 documentos | **~$55** con ChatGPT |
+| Rendimiento | Near-SOTA con solo 8 ejemplos manuales + documentos no etiquetados |
+
+**Principio:** La calidad de los 15–20 ejemplos manuales iniciales determina directamente la calidad del dataset sintético. Representatividad, buen formato y especificaciones de longitud son críticos.
+
+**Variación por dominio:** Distintas tareas definen "relevancia" diferente (recuperación de argumentos puede buscar apoyo O contraargumento). El prompt y los ejemplos se adaptan por tarea.
+
+---
+
 ## Conexiones
 
 - [[chunking]] — el paso más crítico del pipeline (estrategias detalladas)
@@ -151,3 +182,4 @@ scores = cosine_similarity([query_embedding], all_doc_embeddings)
 - [[entities/gemini]] — embeddings multimodales y generación
 - [[chunking-rag]] — fuente primaria: Firecrawl blog
 - [[promptingguide-techniques]] — Lewis et al. 2021 como origen del paradigma (sección RAG como técnica de prompting)
+- [[promptingguide-applications-data]] — Dai et al. 2022: datasets sintéticos para RAG con 8 ejemplos

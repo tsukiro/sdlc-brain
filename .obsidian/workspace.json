@@ -182,6 +182,7 @@
   },
   "active": "9a67974b4db3bc51",
   "lastOpenFiles": [
+    "wiki/concepts/llm-settings.md",
     "wiki/promptingguide-models.md",
     "wiki/promptingguide-applications-data.md",
     "wiki/promptingguide-risks.md",
@@ -207,7 +208,6 @@
     "wiki/sdd-piskala-paper.md",
     "wiki/outlines-paper.md",
     "wiki/entities/langchain.md",
-    "wiki/concepts/langchain.md",
     "wiki/analyses",
     "wiki/concepts",
     "wiki/entities",
