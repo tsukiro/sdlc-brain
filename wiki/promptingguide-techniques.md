@@ -78,7 +78,7 @@ Dos fases: (1) LLM genera conocimiento relevante → (2) LLM usa ese conocimient
 
 ## 6. Prompt Chaining
 
-*(Artículo sin contenido procesable — placeholder de traducción)*
+*(Artículo original sin contenido procesable — placeholder de traducción. La Sección 20 "Prompt Functions" documenta la implementación práctica del patrón de encadenamiento.)*
 
 ---
 
@@ -324,6 +324,7 @@ RAG            (recuperación + generación — Lewis et al. 2021)
 | GraphPrompt (GNNs) | Liu et al. | 2023 |
 | Function Calling | OpenAI GPT-4/3.5 fine-tuning | 2023 |
 | Context Caching | Google Gemini API | 2024 |
+| Prompt Functions | Meta prompt pattern (sin paper formal) | 2023 |
 
 ---
 
@@ -440,3 +441,4 @@ La `description` es crítica: el LLM la usa para decidir cuándo invocar la func
 - [[andrew-ng-agentic-patterns]] — ART relacionado con el Tool Use pattern (Ng)
 - [[reflexion-paper]] — Reflexion: arquitectura de 3 componentes, resultados AlfWorld, limitaciones
 - [[entities/gemini]] — Context Caching: sección detallada con API, comparativa vs. RAG vs. LLM Wiki
+- [[gelin-skills-format]] — Skills como evolución formal de Prompt Functions: YAML frontmatter + triggers + progressive loading + registry (ClawHub)
