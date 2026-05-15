@@ -93,7 +93,8 @@ Catálogo de todas las páginas del wiki. El LLM mantiene este archivo actualiza
 ### Agentes LLM
 - [[concepts/llm-agents]] — Arquitectura base: Planning+Memory+Tools + benchmark HumanEval (2 fuentes)
 - [[concepts/agentic-design-patterns]] — 4 patrones Ng: Reflection/Tool Use/Planning/Multi-Agent (2 fuentes)
-- [[concepts/prompt-engineering]] — Zero-shot, Few-shot, ICL (Brown et al. 2020; Min et al. 2022 sobre el rol de las etiquetas) (1 fuente)
+- [[concepts/prompt-engineering]] — Zero-shot, Few-shot, ICL; Prompt Elements (4 componentes); Tips (Do vs. Don't) (2 fuentes)
+- [[concepts/llm-settings]] — Temperature, Top P, Frequency/Presence Penalty, Stop Sequences; árbol de decisión (1 fuente)
 - [[concepts/planning]] — 11 técnicas: CoT, Self-Consistency, Generated Knowledge, ToT, ReAct, ART, PAL, APE, Reflexion (91% HE + 130/134 AlfWorld), LLM+P, CoH (4 fuentes)
 - [[concepts/agent-memory]] — Memoria: STM/LTM, ANN (LSH/ANNOY/HNSW/FAISS/ScaNN) (1 fuente)
 - [[concepts/agent-evaluation]] — Evaluación: trajectory evaluation, BALROG, LangSmith (3 fuentes)

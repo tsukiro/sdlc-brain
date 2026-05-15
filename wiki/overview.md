@@ -14,9 +14,9 @@ updated: 2026-05-13
 
 ## Estado actual
 
-- Fuentes procesadas: 60
-- Páginas wiki: 87
-- Último ingest: 2026-05-14 (Prompt Engineering Guide — Prompt Functions, DAIR-AI; 5º lote)
+- Fuentes procesadas: 64
+- Páginas wiki: 92
+- Último ingest: 2026-05-14 (Prompt Engineering Guide — repositorio completo DAIR-AI; Introduction/Risks/Applications/Models)
 
 ---
 
@@ -45,7 +45,10 @@ Planning + Memory + Tools (Weng) + Multi-Agent (Ng). Ver [[concepts/llm-agents]]
 Reflection, Tool Use, Planning, Multi-Agent. Se componen. Ver [[concepts/agentic-design-patterns]].
 
 ### 3b. Prompt Engineering Fundamentos
-Zero-shot (instruction tuning + RLHF) y Few-shot (Brown et al. 2020 — in-context learning). Hallazgo clave: el formato de los ejemplos importa más que las etiquetas correctas (Min et al. 2022). Son la base de todas las técnicas de reasoning. Ver [[concepts/prompt-engineering]], [[promptingguide-techniques]].
+Zero-shot (instruction tuning + RLHF) y Few-shot (Brown et al. 2020 — in-context learning). Hallazgo clave: el formato de los ejemplos importa más que las etiquetas correctas (Min et al. 2022). Los **4 elementos de un prompt**: Instruction, Context, Input Data, Output Indicator. **Tip crítico (Do vs. Don't):** las prohibiciones en el prompt frecuentemente producen el comportamiento prohibido — reemplazar siempre con instrucciones afirmativas. Son la base de todas las técnicas de reasoning. Ver [[concepts/prompt-engineering]], [[concepts/llm-settings]], [[promptingguide-techniques]].
+
+### 3c. LLM Settings — Parámetros de Generación
+Los parámetros controlan el comportamiento de generación tan decisivamente como el prompt. **Reglas críticas:** ajustar Temperature OR Top P (nunca ambos); Frequency OR Presence Penalty (nunca ambos). **Distinción clave:** Frequency Penalty acumula penalidad proporcionalmente; Presence Penalty es binaria (una aparición = penalidad máxima). Ver [[concepts/llm-settings]], [[promptingguide-introduction]].
 
 ### 4. Técnicas de Planning
 **11 técnicas documentadas**: CoT (Wei + Kojima 2022; "Let's think step by step"), Self-Consistency (Wang 2022; +10–20 pts sobre greedy), Generated Knowledge (Liu 2022), ToT (Yao 2023 + Long 2023; BFS/DFS), ReAct (Yao **2022**; mejor combo = ReAct + CoT + Self-Consistency), ART (Paranjape 2023; supera few-shot en BigBench + MMLU), **PAL** (Gao 2022; código Python como razonamiento → intérprete determinista), **APE** (Zhou 2022; encontró mejor zero-shot CoT que el humano), Reflexion (91% HumanEval, 130/134 AlfWorld; 3 componentes: Actor/Evaluator/Self-Reflection), LLM+P, CoH. Ver [[concepts/planning]].
@@ -170,6 +173,11 @@ SDLC
 10. **Mitigación vs. prevención**: todas las defensas contra prompt injection son probabilísticas, no deterministas
 
 ---
+
+## Tensiones nuevas (ingest DAIR-AI repositorio completo)
+
+19. **CoT few-shot peor que zero-shot en clasificación**: Clavié et al. 2023 demuestra que CoT few-shot *empeora* el rendimiento en tareas de clasificación que no requieren razonamiento experto (F1 peor que zero-shot baseline). Contradice la aplicación universal de CoT. Resolución: CoT es técnica de razonamiento, no mejora universal — agrega valor solo cuando hay descomposición de razonamiento complejo genuina que hacer.
+20. **Waluigi Effect — consecuencia estructural de RLHF**: El entrenamiento RLHF que enseña comportamientos "alineados" codifica implícitamente sus opuestos en el espacio de representaciones. Los modelos son inherentemente susceptibles a roleplay adversarial que active el "opuesto" de su personalidad alineada. No es un bug patcheable — es consecuencia estructural del RLHF. Relacionado con Prompt Injection sin solución determinista (tensión 9-10).
 
 ## Tensiones nuevas (ingest AI-SDLC)
 
