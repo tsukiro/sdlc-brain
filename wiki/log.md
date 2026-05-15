@@ -132,6 +132,15 @@ Registro cronológico append-only de todas las operaciones del wiki.
 - Páginas creadas: [[outlines-paper]], [[instructor]], [[typechat]], [[jxnl-pipelines]], [[concepts/structured-generation]], [[entities/outlines]], [[entities/instructor]], [[entities/typechat]]
 - Páginas actualizadas: [[gemini]] (sección Structured Outputs nativos + Instructor), [[overview]] (tema 12 + 2 tensiones nuevas + mapa de conceptos), [[index]]
 
+## [2026-05-14] ingest | AI in SDLC — Snyk / Stephen Thoemmes (2025-12-09)
+- Nota: IBM URL (https://www.ibm.com/think/topics/ai-in-sdlc) solo cargó muro de cookies/consent frame — sin contenido extraíble; no se creó source-summary para esa URL
+- Tabla comparativa Traditional vs AI-enhanced SDLC (9 dimensiones); IA por fase con nivel de madurez 2025
+- Estrategia de adopción incremental: piloto 30 días → evaluar → expandir → escala; tiempos de integración por categoría (code completion 1-2w a architecture planning 8-12w)
+- Gartner: 75% engineers enterprise usarán AI coding assistants para 2028; proyección: devs no reemplazados hasta 2040
+- Riesgos nuevos: prompt injection en IDEs de codificación IA, secret leakage en código generado, sobredependencia y pérdida de habilidades
+- Páginas creadas: [[snyk-ai-sdlc]]
+- Páginas actualizadas: [[concepts/sdlc]] (nueva sección "SDLC potenciado por IA" con tabla e integración por categoría), [[overview]] (Tema 1 actualizado), [[index]]
+
 ## [2026-05-14] ingest | Control Vectors as Dispositional Traits — Calcagni (LessWrong)
 - Reencuadra los control vectors como "rasgos disposicionales"; propone 12 traits en 4 categorías (Anti-Optimizer, Core Beliefs, Communication, Work Ethos) como mínimo para LLM seguro
 - Variante PCA (vs. regresión logística de GCAV): ambas buscan el mismo eje semántico, son complementarias

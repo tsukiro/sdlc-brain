@@ -16,6 +16,7 @@ Catálogo de todas las páginas del wiki. El LLM mantiene este archivo actualiza
 - [[ibm-sdlc]] — IBM: SDLC como roadmap, gestión de riesgos, V-Model, IBM Bob (1 fuente)
 - [[aws-sdlc]] — AWS: 6 fases, tabla de modelos, DevSecOps, distinciones SDLC/ALM (1 fuente)
 - [[atlassian-sdlc]] — Atlassian: 7 fases, frameworks Agile (Scrum/Kanban/Lean/XP), Jira (1 fuente)
+- [[snyk-ai-sdlc]] — Snyk/Thoemmes: SDLC con IA por fase, tabla traditional vs AI, implementación incremental, Gartner 2028 (1 fuente)
 
 ### Agentes LLM — Fundamentos
 - [[lilian-weng-agents]] — Weng: Planning+Memory+Tools, CoT/ToT/ReAct/Reflexion, ANN, casos de uso (1 fuente)

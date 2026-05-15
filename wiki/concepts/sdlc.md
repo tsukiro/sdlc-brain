@@ -81,9 +81,40 @@ Todos los modelos son formas distintas de **organizar y secuenciar** las fases d
 
 ---
 
+## SDLC potenciado por IA
+
+La integración de herramientas IA en el SDLC transforma cada fase con distinta profundidad y madurez:
+
+| Fase | Impacto de IA | Madurez (2025) |
+|---|---|---|
+| **Requisitos** | NLP sobre user stories, extracción automática, priorización de backlog | Media |
+| **Diseño** | Sugerencia de arquitecturas y patrones; generación de diagramas | Media-baja |
+| **Implementación** | AI coding assistants (Copilot, etc.): generación, refactoring, documentación | Alta |
+| **Testing** | Auto-generación de casos de prueba, anomaly detection en QA | Media |
+| **Deployment** | Predicción de fallos, optimización de pipelines CI/CD | Media |
+| **Monitoring** | Detección de anomalías, respuesta automática a incidentes | Media |
+
+**Regla de adopción incremental (Snyk, 2025):** piloto (2-3 devs / 30 días) → evaluación → expansión → escala. Las herramientas de code completion tienen integración de 1-2 semanas; architecture planning requiere 8-12 semanas.
+
+**Complejidad de integración:**
+- Code completion: Baja / 1-2 semanas
+- Code review: Media / 3-4 semanas
+- Testing automation: Media / 4-6 semanas
+- Architecture planning: Alta / 8-12 semanas
+
+**Outlook (Gartner 2024):** 75% de engineers enterprise usarán AI coding assistants para 2028. La IA no reemplaza a los devs — los devs pasan a ser "conductores de IA" que aportan juicio contextual y ético.
+
+**Desafíos principales:** secret leakage en código generado, deuda técnica por generación sin revisión, sobredependencia y pérdida de habilidades fundamentales.
+
+Ver [[snyk-ai-sdlc]] para guía completa de implementación, tabla comparativa y outlook 2040.
+
+---
+
 ## SDLC y Seguridad
 
 Las prácticas [[devsecops]] integran seguridad en cada fase del SDLC en lugar de tratarla como un paso final. Incluye revisión de código, análisis arquitectónico y pruebas de penetración. *(Cubierto principalmente por AWS)*.
+
+Con IA, la seguridad se vuelve **continua y transversal**: escaneo de vulnerabilidades mientras se escribe el código (no solo en reviews), detección automática de secrets, y reconocimiento de anti-patterns. Nuevo riesgo: prompt injection en IDEs de codificación IA.
 
 ---
 
@@ -95,6 +126,8 @@ Las prácticas [[devsecops]] integran seguridad en cada fase del SDLC en lugar d
 - [[iterative-model]] — mejoras progresivas en versiones
 - [[spiral]] — ciclos con análisis de riesgo continuo
 - [[devsecops]] — integración de seguridad en el SDLC
+- [[snyk-ai-sdlc]] — SDLC potenciado por IA: comparativa por fase, implementación incremental, seguridad, outlook 2028-2040
+- [[analyses/sdlc-ia-flujo-recomendado]] — síntesis de SDLC con IA fase a fase
 - [[ibm-sdlc]] — fuente IBM
 - [[aws-sdlc]] — fuente AWS (más operacional, incluye distinciones SDLC/ALM)
 - [[atlassian-sdlc]] — fuente Atlassian (más centrada en Agile y frameworks)

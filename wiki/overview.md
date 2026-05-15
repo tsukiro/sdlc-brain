@@ -14,9 +14,9 @@ updated: 2026-05-13
 
 ## Estado actual
 
-- Fuentes procesadas: 38
-- Páginas wiki: 81
-- Último ingest: 2026-05-14 (Control Vectors as Dispositional Traits — Calcagni, LessWrong 2024)
+- Fuentes procesadas: 39
+- Páginas wiki: 82
+- Último ingest: 2026-05-14 (AI in SDLC — Snyk/Thoemmes 2025)
 
 ---
 
@@ -36,7 +36,7 @@ Los tres datos que anclan esta tesis:
 ## Temas principales
 
 ### 1. SDLC Fundamentos
-Plan→Design→Implement→Test→Deploy→Maintain. Ver [[concepts/sdlc]], [[concepts/waterfall]], [[concepts/agile]].
+Plan→Design→Implement→Test→Deploy→Maintain. Con IA: cada fase tiene herramientas específicas; adopción recomendada incremental (piloto 30 días → evaluación → escala). Gartner: 75% de engineers usarán AI coding assistants para 2028. Ver [[concepts/sdlc]], [[concepts/waterfall]], [[concepts/agile]], [[snyk-ai-sdlc]].
 
 ### 2. Arquitectura de Agentes LLM
 Planning + Memory + Tools (Weng) + Multi-Agent (Ng). Ver [[concepts/llm-agents]].
