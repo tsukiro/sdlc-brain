@@ -226,3 +226,9 @@ Registro cronológico append-only de todas las operaciones del wiki.
 - Caso demostrado: un año de papers ML en texto plano, consultas en lenguaje natural
 - Conexión conceptual: Context Caching vs. LLM Wiki (KV cache server-side temporal vs. síntesis compilada persistente) vs. RAG (corpus dinámico)
 - Páginas actualizadas: [[entities/gemini]] (sección Context Caching + comparativa vs. RAG vs. LLM Wiki; conexión a [[concepts/llm-wiki]]), [[promptingguide-techniques]] (sección 19 añadida; orden reajustado), [[overview]], [[index]] (contador actualizado)
+
+## [2026-05-14] ingest | Prompt Engineering Guide — Prompt Functions (DAIR-AI)
+- Meta prompt pattern: encapsula prompts con function_name / input / rule; invocación con sintaxis funcional; composición de adentro hacia afuera (ej. fix_english(expand_word(trans_word(x))))
+- Conexión documentada: Prompt Functions (2023, manual, sin registry) → Skills (2024-2025, YAML+triggers+progressive loading+ClawHub) — misma solución en niveles de formalidad crecientes
+- Relación con Prompt Chaining: las funciones componibles son la implementación práctica del patrón
+- Páginas actualizadas: [[promptingguide-techniques]] (sección 20 añadida; sección 6 Prompt Chaining actualizada con referencia a sección 20; tablas actualizadas; conexión a [[gelin-skills-format]]), [[overview]], [[index]]

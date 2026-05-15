@@ -14,9 +14,9 @@ updated: 2026-05-13
 
 ## Estado actual
 
-- Fuentes procesadas: 59
+- Fuentes procesadas: 60
 - Páginas wiki: 87
-- Último ingest: 2026-05-14 (Prompt Engineering Guide — Context Caching, DAIR-AI; 4º lote)
+- Último ingest: 2026-05-14 (Prompt Engineering Guide — Prompt Functions, DAIR-AI; 5º lote)
 
 ---
 

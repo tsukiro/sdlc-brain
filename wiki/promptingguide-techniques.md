@@ -328,6 +328,67 @@ RAG            (recuperación + generación — Lewis et al. 2021)
 
 ---
 
+## 20. Prompt Functions
+
+**Fuente:** https://www.promptingguide.ai/applications/pf
+
+### El Meta Prompt
+
+El patrón encapsula un prompt con nombre, input y reglas usando un **meta prompt** que enseña al LLM a interpretar "llamadas a función":
+
+```text
+function_name: [Nombre de la función]
+input: [Input]
+rule: [Instrucciones sobre cómo procesar el input]
+```
+
+Una vez registradas las funciones, se invocan con sintaxis funcional:
+
+```text
+trans_word("婆罗摩火山...")
+fix_english(expand_word(trans_word("婆罗摩火山...")))
+```
+
+El LLM aplica las reglas de la función al input y devuelve el output. La **composición** sigue el modelo funcional estándar: evaluación de adentro hacia afuera.
+
+### Ejemplos definidos en el artículo
+
+| Función | Regla |
+|---------|-------|
+| `trans_word(text)` | Traducir al inglés y corregir ortografía |
+| `expand_word(text)` | Expandir texto sin cambiar el significado; más literario |
+| `fix_english(text)` | Mejorar vocabulario y naturalidad; mantener significado |
+| `pg(length, capitalized, lowercase, numbers, special)` | Generar contraseña con los parámetros dados |
+
+### Por qué importa
+
+1. **Reutilización**: el meta prompt se define una vez; las funciones se invocan en cualquier chat
+2. **Composabilidad**: `f(g(h(x)))` — encadenamiento funcional legible
+3. **Accesible**: no requiere código Python ni framework — solo lenguaje natural estructurado
+
+### Evolución histórica del concepto
+
+```
+Prompt Functions (2023)
+    → formato manual: function_name / input / rule
+    → sin versionado, sin discovery, sin persistencia entre sesiones
+
+Skills (Gelin, 2024-2025) — [[gelin-skills-format]]
+    → YAML frontmatter + markdown body + triggers
+    → Progressive loading (3 niveles: metadata → instructions → resources)
+    → Discovery automático (filesystem scanning)
+    → Registry público (ClawHub)
+    → Portable entre plataformas (OpenClaw, Claude Agent Skills, Cursor)
+```
+
+El mismo problema de reutilización de expertise → soluciones de complejidad creciente. Prompt Functions son el "npm casero"; Skills son el npm real con registry.
+
+### Relación con Prompt Chaining
+
+Prompt Functions demuestran Prompt Chaining en la práctica: cada función es un paso; la composición `fix_english(expand_word(trans_word(x)))` es un pipeline de 3 pasos donde el output de cada función alimenta la siguiente.
+
+---
+
 ## 19. Context Caching
 
 **Fuente:** https://www.promptingguide.ai/applications/context-caching  
