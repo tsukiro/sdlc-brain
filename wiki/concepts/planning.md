@@ -61,7 +61,7 @@ La pregunta es: [PREGUNTA]
 
 ## Técnica 3: ReAct (Reasoning + Acting)
 
-**Origen**: Yao et al. 2023
+**Origen**: Yao et al. 2022 (arXiv:2210.03629)
 
 **Mecanismo**: Ciclo iterativo que integra razonamiento y acción:
 
@@ -79,6 +79,10 @@ Answer: La respuesta es $Z
 **Por qué es poderoso**: combina el razonamiento interno del LLM con información del mundo real (via herramientas). El "Thought" hace el razonamiento explícito y trazable; el "Action" extiende las capacidades.
 
 **Cuándo**: prácticamente cualquier agente con herramientas. Es el patrón de agente más implementado en producción. [[concepts/langgraph]] lo implementa nativamente con su ciclo nodo-agente → nodo-herramientas.
+
+**Mejor combinación identificada:** **ReAct + CoT + Self-Consistency** supera a cada técnica por separado — CoT (razonamiento interno) + ReAct (información externa) + Self-Consistency (votación mayoritaria).
+
+**Resultados en decision-making:** ALFWorld (navegación textual): ReAct supera a Act-only — el razonamiento explícito es clave para descomponer subobjetivos en pasos ejecutables. WebShop (compras simuladas): ídem.
 
 ---
 
@@ -100,6 +104,13 @@ Intento 2 → usa reflexión como contexto adicional → mejor resultado
 - Mismas acciones repetidas (alucinación de bucle)
 
 **Implementación**: few-shot con pares (trayectoria fallida, reflexión ideal).
+
+**Arquitectura de 3 componentes** (Shinn et al.):
+- **Actor**: Genera texto y acciones (implementado con CoT o ReAct); opera en el entorno y recibe observaciones
+- **Evaluator**: Puntúa las trayectorias del Actor (LLM judge o heurísticas rule-based)
+- **Self-Reflection**: Genera feedback verbal desde reward + trayectoria + memoria; almacena en LTM para episodios futuros
+
+**Resultado AlfWorld:** ReAct + Reflexion completa **130/134 tareas** (vs. ~50% sin Reflexion).
 
 **Diferencia con Reflection (Ng)**: Reflexion (Shinn) es una técnica específica con heurísticas y memoria persistente de reflexiones. Reflection (Ng) es el patrón general de autoevaluación.
 
@@ -224,6 +235,48 @@ LLM completa el razonamiento → respuesta final
 
 ---
 
+## Técnica 10: PAL — Program-Aided Language Models
+
+**Origen:** Gao et al. 2022
+
+**Mecanismo:** En lugar de razonar en texto libre (CoT), el LLM genera **código Python** como pasos de razonamiento intermedio. El cálculo es delegado a un intérprete Python determinista.
+
+```
+Pregunta en lenguaje natural
+    ↓
+LLM genera código Python (razonamiento como programa)
+    ↓
+Intérprete Python ejecuta → resultado determinista y correcto
+```
+
+**Diferencia clave respecto a CoT:** CoT delega el razonamiento Y el cálculo al LLM → puede "calcular" mal. PAL separa razonamiento (LLM) de ejecución (intérprete) → garantía de correctitud.
+
+**Extensibilidad:** El runtime puede ser cualquier sistema simbólico: Python, Wolfram Alpha, SQL.
+
+**Cuándo:** Aritmética precisa, manipulación de fechas, razonamiento lógico estructurado — cualquier tarea donde la ejecución determinista supera la "aritmética" del LLM.
+
+---
+
+## Técnica 11: APE — Automatic Prompt Engineer
+
+**Origen:** Zhou et al. 2022 — "Large Language Models are Human-Level Prompt Engineers"
+
+**Mecanismo:** Automatiza la búsqueda del prompt óptimo como black-box optimization:
+1. LLM recibe output demonstrations → genera candidatos de instrucción
+2. Las instrucciones se ejecutan en un target model
+3. Se selecciona la instrucción con mejor evaluation score
+
+**Hallazgo crítico:** APE descubrió un zero-shot CoT mejor que el humano "Let's think step by step":
+> "Let's work this out in a step by step way to be sure we have the right answer."
+
+Esta variante supera al CoT original de Kojima et al. en MultiArith y GSM8K.
+
+**Implicación:** El espacio de prompts es vasto; los prompts óptimos no son necesariamente los que los humanos escribirían intuitivamente.
+
+**Cuándo:** Cuando el costo de prompt engineering manual es alto y existe un conjunto de evaluación para medir calidad de instrucciones.
+
+---
+
 ## Comparativa de técnicas
 
 | Técnica | Tipo | Herramientas | Costo | Mejor para |
@@ -234,7 +287,9 @@ LLM completa el razonamiento → respuesta final
 | **ToT** | Prompting + búsqueda | No | Muy alto | Espacio de solución amplio, puzzles |
 | **ReAct** | Prompting + Loop | Sí | Medio | Agentes con herramientas (default) |
 | **ART** | CoT + Tools + Library | Sí | Medio | Multi-step con herramientas, reproducible |
-| **Reflexion** | Memoria + Loop | Opcional | Medio | Tareas de múltiples intentos |
+| **PAL** | CoT → código → intérprete | No (Python) | Bajo | Aritmética, fechas, razonamiento lógico formal |
+| **APE** | Búsqueda automática de prompts | No | Variable | Optimizar instrucciones sin prompt engineering manual |
+| **Reflexion** | Memoria + Loop (3 componentes) | Opcional | Medio | Tareas de múltiples intentos |
 | **LLM+P** | Arquitectura híbrida | Sí (motor PDDL) | Medio | Planificación formal bien definida |
 
 ---

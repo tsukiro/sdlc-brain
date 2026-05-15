@@ -1,69 +1,49 @@
 ---
-title: "Prompt Engineering Guide — Técnicas Fundamentales (DAIR-AI)"
+title: "Prompt Engineering Guide — Técnicas (DAIR-AI)"
 type: source-summary
-tags: [prompt-engineering, zero-shot, few-shot, cot, self-consistency, generated-knowledge, tot, rag, art, chain-of-thought]
+tags: [prompt-engineering, zero-shot, few-shot, cot, self-consistency, generated-knowledge, tot, rag, art, chain-of-thought, ape, pal, active-prompt, multimodal-cot, react, reflexion]
 sources: []
 updated: 2026-05-14
 ---
 
-# Prompt Engineering Guide — Técnicas Fundamentales (DAIR-AI)
+# Prompt Engineering Guide — Técnicas (DAIR-AI)
 
 **Fuente:** https://www.promptingguide.ai/techniques  
 **Organización:** DAIR-AI (Democratizing AI Research)  
-**Procesado:** 9 artículos individuales (Zero-shot, Few-shot, CoT, Self-Consistency, Generated Knowledge, Prompt Chaining*, ToT, RAG, ART)  
-\* Prompt Chaining: artículo sin contenido procesable en el momento del ingest (solo placeholder "needs translation").
+**Procesado:** 17 artículos individuales (2 ingests, 2026-05-14)  
+**Artículos sin contenido procesable:** Prompt Chaining (placeholder de traducción)
 
 ---
 
 ## 1. Zero-shot Prompting
 
-El modelo responde directamente a la tarea sin ningún ejemplo previo:
+El modelo responde directamente a la tarea sin ningún ejemplo previo.
 
-```
-Clasifica el siguiente texto como positivo, negativo o neutral:
-Texto: "Este viaje fue increíble."
-Sentimiento:
-```
+**Por qué funciona:** La **instruction tuning** y el **RLHF** permiten que los LLMs modernos generalicen a tareas no vistas. Zero-shot no existía en GPT-2 — es resultado del entrenamiento post-pretraining moderno.
 
-**Por qué funciona:** La **instruction tuning** (fine-tuning en datasets de instrucciones) y el **RLHF** permiten que los LLMs modernos generalicen a tareas no vistas a partir de instrucciones en lenguaje natural. Zero-shot no existía como capacidad en GPT-2 — es un resultado directo del entrenamiento post-pretraining moderno.
-
-**Limitación:** Falla en tareas que requieren razonamiento multi-paso complejo o conocimiento de dominio muy estrecho.
+**Limitación:** Falla en tareas de razonamiento multi-paso complejo o knowledge de dominio estrecho.
 
 ---
 
 ## 2. Few-shot Prompting
 
-**Origen principal:** Brown et al. 2020 (GPT-3 paper) — demostró el **in-context learning (ICL)** a escala: LLMs suficientemente grandes pueden "aprender" tareas a partir de ejemplos en el prompt sin actualización de pesos.
-
-```
-El cielo es azul.    → positivo
-La hierba es verde.  → positivo
-Esto es horrible.    → negativo
-El vuelo fue okay.   →
-```
+**Origen principal:** Brown et al. 2020 (GPT-3) — demostró el **in-context learning (ICL)** a escala.
 
 ### Hallazgo clave: el rol de las etiquetas (Min et al. 2022)
 
-Resultado contraintuitivo: **los modelos mantienen gran parte de su performance con etiquetas aleatorias en los ejemplos few-shot**.
+**Los modelos mantienen gran parte de su performance con etiquetas aleatorias en los ejemplos few-shot.**
 
-Lo que el modelo aprende del few-shot:
-1. **El espacio de etiquetas** — qué opciones son válidas como respuesta
-2. **La distribución de inputs** — de qué tipo son los textos de entrada
-3. **El formato de la respuesta** — cómo debe estructurarse el output
+Lo que el modelo aprende del few-shot: el espacio de etiquetas, la distribución de inputs, el formato de la respuesta. El conocimiento de "qué etiqueta va con qué input" viene del **pretraining**, no del few-shot.
 
-El conocimiento de "qué etiqueta es correcta" viene del **pretraining**, no del few-shot.
-
-**Implicación práctica:** No es necesario tener ejemplos perfectamente etiquetados — sí es necesario que sean representativos del formato y la distribución del task.
+**Implicación:** El formato importa más que la "corrección" de las etiquetas.
 
 ---
 
 ## 3. Chain of Thought (CoT)
 
 **Orígenes duales:**
-- **Few-shot CoT** (Wei et al. 2022): añadir ejemplos de razonamiento paso a paso en el prompt
-- **Zero-shot CoT** (Kojima et al. 2022): simplemente añadir **"Let's think step by step"** — sorprendentemente efectivo sin ningún ejemplo
-
-El zero-shot CoT es uno de los hallazgos más contraintuitivos de la literatura: un solo string habilita razonamiento que sin él el modelo falla consistentemente.
+- **Few-shot CoT** (Wei et al. 2022): ejemplos de razonamiento paso a paso en el prompt
+- **Zero-shot CoT** (Kojima et al. 2022): simplemente añadir **"Let's think step by step"** — efectivo sin ejemplos
 
 Ver técnicas completas en [[concepts/planning]].
 
@@ -73,20 +53,16 @@ Ver técnicas completas en [[concepts/planning]].
 
 **Origen:** Wang et al. 2022 — "Self-Consistency Improves Chain of Thought Reasoning in Language Models"
 
-**Mecanismo:** Reemplaza la decodificación greedy (un único path de razonamiento) por votación mayoritaria sobre múltiples paths independientes:
+Reemplaza la decodificación greedy por votación mayoritaria sobre múltiples CoT paths independientes:
 
 ```
 Query → CoT path 1 → Respuesta A
-      → CoT path 2 → Respuesta A   ← votación mayoritaria → Respuesta A (final)
+      → CoT path 2 → Respuesta A   ← votación → A (final)
       → CoT path 3 → Respuesta B
       → CoT path 4 → Respuesta A
 ```
 
-**Por qué mejora:** Los paths incorrectos de razonamiento tienden a divergir en sus respuestas; los paths correctos convergen. La votación marginaliza los caminos de razonamiento, no solo las respuestas finales.
-
-**Costo:** N llamadas al LLM (típicamente 5–40 samples con temperatura > 0) → mayor latencia y costo que CoT simple. Trade-off explícito: accuracy vs. costo.
-
-**Resultado empírico:** Mejoras consistentes de 10–20 puntos sobre CoT greedy en benchmarks matemáticos (GSM8K) y de razonamiento lógico.
+**Resultado empírico:** +10–20 puntos sobre CoT greedy en GSM8K y benchmarks lógicos. Costo: N llamadas al LLM.
 
 ---
 
@@ -94,62 +70,30 @@ Query → CoT path 1 → Respuesta A
 
 **Origen:** Liu et al. 2022 — "Generated Knowledge Prompting for Commonsense Reasoning"
 
-**Mecanismo:** Dos fases separadas:
+Dos fases: (1) LLM genera conocimiento relevante → (2) LLM usa ese conocimiento para predecir.
 
-**Fase 1 — Generar conocimiento:**
-```
-Genera hechos relevantes sobre: ¿Los golfistas obtienen más puntos
-haciendo más golpes?
-→ "En golf, el objetivo es completar el hoyo con el menor número de golpes..."
-→ "Un birdie (un golpe menos que el par) es mejor que un par..."
-```
-
-**Fase 2 — Predecir con conocimiento:**
-```
-[conocimiento generado] + "¿Los golfistas obtienen más puntos
-haciendo más golpes? Responde Sí o No."
-→ "No"
-```
-
-**Dominio:** Razonamiento de sentido común donde el LLM tiene el conocimiento en sus pesos pero no lo activa espontáneamente. Benchmarks: NumerSense, CommonsenseQA, OpenBookQA.
-
-**Diferencia con RAG:** El conocimiento es generado por el mismo LLM (no recuperado de fuente externa). Útil cuando no hay base de datos disponible pero el conocimiento existe en los pesos del modelo.
-
-**Limitación:** Si la Fase 1 genera conocimiento incorrecto, contamina la predicción en la Fase 2.
+**Diferencia con RAG:** El conocimiento lo genera el mismo LLM, no se recupera de fuente externa.
 
 ---
 
 ## 6. Prompt Chaining
 
-*(Artículo sin contenido procesable al momento del ingest — solo placeholder de traducción)*
-
-El concepto refiere a encadenar múltiples prompts donde el output de uno es el input del siguiente. Técnica de descomposición de tareas complejas. Relacionado con [[concepts/planning]] (multi-step) y [[concepts/agentic-design-patterns]] (Reflection + Tool Use).
+*(Artículo sin contenido procesable — placeholder de traducción)*
 
 ---
 
 ## 7. Tree of Thoughts (ToT)
 
 **Orígenes:**
-- **Yao et al. 2023** — versión principal: árbol de razonamiento con búsqueda BFS/DFS y evaluación explícita de estados
-- **Long 2023** — variante con ToT Controller entrenado por RL
+- **Yao et al. 2023** — BFS/DFS con evaluación de estados (`sure / maybe / impossible`)
+- **Long 2023** — ToT Controller entrenado por RL
 
-**Extensión de CoT:** En CoT el razonamiento es una cadena lineal; en ToT es un árbol donde cada nodo es un "pensamiento" (paso de razonamiento intermedio) y el modelo explora múltiples ramas.
-
-**Evaluación de estados:** El LLM evalúa cada nodo como `sure / maybe / impossible`, guiando la búsqueda:
-- **BFS:** explora todos los nodos a profundidad k antes de profundizar
-- **DFS:** explora una rama hasta el final antes de hacer backtrack
-
-**Prompt mínimo** (sin implementación compleja de árbol):
+**Prompt mínimo** (sin implementación de árbol completa):
 ```
 Imagina que tres expertos diferentes están respondiendo a esta pregunta.
 Cada experto escribe 1 paso de su razonamiento y lo comparte con el grupo.
-Si algún experto se equivoca en algún momento, ese experto se va.
-La pregunta es: [PREGUNTA]
+Si algún experto se equivoca, ese experto se va. La pregunta es: [PREGUNTA]
 ```
-
-**Long 2023 — variante RL:** Introduce un ToT Controller entrenado por RL para aprender qué caminos son más prometedores cross-dominio, con mayor capacidad de generalización.
-
-Ver implementación completa en [[concepts/planning]].
 
 ---
 
@@ -157,13 +101,9 @@ Ver implementación completa en [[concepts/planning]].
 
 **Origen:** Lewis et al. 2021 — "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks" (NeurIPS 2021)
 
-**Modelo conceptual fundamental:**
-- **Memoria paramétrica:** el conocimiento en los pesos del LLM (fija, solo actualizable via fine-tuning)
-- **Memoria no-paramétrica:** un índice vectorial denso consultable en tiempo de inferencia
+**Modelo conceptual:** memoria paramétrica (pesos del LLM) + memoria no-paramétrica (índice vectorial denso).
 
-El paper original usó **DPR (Dense Passage Retrieval)** sobre un índice vectorial completo de Wikipedia. Retrieve → Augment → Generate: el generador (seq2seq) recibe los pasajes recuperados como contexto y produce respuestas grounded.
-
-Esta separación paramétrico/no-paramétrico sigue siendo el modelo mental correcto para RAG: el LLM aporta razonamiento y síntesis; el índice aporta conocimiento actualizado, privado o especializado.
+El paper original usó DPR sobre Wikipedia completa. Esta separación sigue siendo el modelo mental correcto para RAG.
 
 Ver pipeline completo en [[concepts/rag]].
 
@@ -173,30 +113,166 @@ Ver pipeline completo en [[concepts/rag]].
 
 **Origen:** Paranjape et al. 2023 — "ART: Automatic multi-step reasoning and tool-use for large language models"
 
-**Mecanismo:** Combina CoT y tool calls en un LLM congelado (sin fine-tuning) via una **Task Library**:
+CoT + tool calls en LLM congelado via una **Task Library**. Selecciona 2-shot ejemplos automáticamente, pausa la generación para tool calls, reanuda con los resultados integrados.
+
+**Extensión clave:** ART funciona en **zero-shot** para nuevas tareas (generaliza desde la Task Library). Supera a few-shot CoT y CoT automático en BigBench y MMLU. **Excede a prompts CoT artesanales cuando se incorpora feedback humano** a la task library.
+
+---
+
+## 10. APE — Automatic Prompt Engineer
+
+**Origen:** Zhou et al. 2022 — "Large Language Models are Human-Level Prompt Engineers"
+
+**Problema:** El prompt engineering manual es costoso e inconsistente. APE lo automatiza via black-box optimization.
+
+**Mecanismo:**
+1. Un LLM recibe output demonstrations → genera candidatos de instrucción
+2. Las instrucciones se ejecutan en un target model
+3. Se selecciona la instrucción con mejor evaluation score
+
+**Hallazgo crítico:** APE descubrió un zero-shot CoT mejor que el humano "Let's think step by step":
+
+> "Let's work this out in a step by step way to be sure we have the right answer."
+
+Esta variante supera al CoT original de Kojima et al. en **MultiArith** y **GSM8K**.
+
+**Implicación de fondo:** El espacio de prompts es vasto; los prompts óptimos no son necesariamente los que los humanos escribirían intuitivamente. La búsqueda automática descubre mejores soluciones.
+
+**Técnicas relacionadas de optimización:**
+
+| Técnica | Método | Ref |
+|---------|--------|-----|
+| OPRO | LLM optimiza sus propios prompts iterativamente; "Take a deep breath" mejora en matemáticas | 2023 |
+| AutoPrompt | Gradient-guided search para crear prompts | 2020 |
+| Prefix Tuning | Prefijo continuo entrenable; alternativa ligera a fine-tuning | 2021 |
+| Prompt Tuning | Soft prompts aprendibles via backpropagation | 2021 |
+
+---
+
+## 11. Active-Prompt
+
+**Origen:** Diao et al. 2023 — "Active Prompting with Chain-of-Thought for Large Language Models"
+
+**Problema:** Los ejemplos CoT fijos pueden no ser los más efectivos para cada tarea.
+
+**Mecanismo (adaptación activa):**
+1. LLM genera k respuestas para un conjunto de preguntas de entrenamiento
+2. Se calcula una métrica de **incertidumbre** (desacuerdo entre las k respuestas)
+3. Las preguntas con mayor incertidumbre se seleccionan para **anotación humana**
+4. Los nuevos ejemplos anotados se usan como demostraciones CoT para inferencia
+
+**Principio:** Maximizar el valor informativo de la anotación humana seleccionando los casos donde el modelo es más incierto.
+
+---
+
+## 12. DSP — Directional Stimulus Prompting
+
+**Origen:** Li et al. 2023 — "Guiding Large Language Models via Directional Stimulus Prompting"
+
+Un **policy LM pequeño y entrenable** (vía RL) genera hints/estímulos que guían a un LLM grande congelado hacia el output deseado. Permite optimizar el comportamiento del sistema sin tocar el LLM grande.
+
+---
+
+## 13. PAL — Program-Aided Language Models
+
+**Origen:** Gao et al. 2022 — "PAL: Program-Aided Language Models"
+
+**Idea central:** En lugar de razonar en texto libre (CoT), el LLM genera **código Python** como pasos de razonamiento intermedio. La ejecución es delegada a un intérprete Python determinista.
 
 ```
-Task Library: colección de tareas con demostraciones CoT + tool calls
-
-Nueva tarea → selección automática de 2-shot ejemplos similares de la biblioteca
+Pregunta en lenguaje natural
     ↓
-LLM genera razonamiento CoT
-    ↓ [si necesita herramienta, pausa la generación]
-Tool call: search / calculate / execute → resultado insertado en contexto
-    ↓ [reanuda generación]
-LLM completa el razonamiento → respuesta final
+LLM genera código Python (razonamiento como programa)
+    ↓
+Intérprete Python ejecuta → resultado determinista y correcto
 ```
 
-**LLM congelado:** Funciona sin fine-tuning. La Task Library provee el formato CoT + herramientas via few-shot — no se modifican los pesos del modelo.
+**Ejemplo concreto:**
+```python
+# Q: Nací exactamente hace 25 años. Hoy es 27 Feb 2023. ¿Cuándo nací?
+today = datetime(2023, 2, 27)
+born = today - relativedelta(years=25)
+born.strftime('%m/%d/%Y')  # → 02/27/1998
+```
 
-**Extensibilidad humana:** La Task Library es editable → añadir herramientas y corregir errores sin tocar el modelo base.
+**Diferencia clave con CoT:** CoT delega el razonamiento Y el cálculo al LLM → puede "calcular" mal. PAL separa razonamiento (LLM, semántico) de ejecución (intérprete, determinista) → garantía de correctitud en la ejecución.
 
-**Resultados:**
-- Supera few-shot CoT en la mayoría de tareas de **BigBench** (reasoning, NLP)
-- Supera few-shot CoT en **MMLU** (multidisciplinary knowledge)
-- Comparable a fine-tuning en algunos benchmarks sin entrenamiento adicional
+**Extensibilidad:** El "símbolo de razonamiento" puede ser cualquier runtime: Python, Wolfram Alpha, SQL.
 
-**Relación con ReAct:** Comparten el ciclo razonamiento + acción. ART añade la Task Library (reproducibilidad cross-task) y la pausa explícita de generación para tool calls como mecanismo formal.
+**Cuándo:** Aritmética precisa, manipulación de fechas, razonamiento lógico estructurado — cualquier tarea donde la ejecución determinista supera la "aritmética" del LLM.
+
+---
+
+## 14. ReAct — detalles y resultados
+
+*(Técnica principal documentada en [[concepts/planning]])*
+
+**Origen:** Yao et al. **2022** (arXiv:2210.03629) — nota: frecuentemente citado como 2023, pero el paper es de octubre 2022.
+
+**Mejor combinación identificada en el paper:** **ReAct + CoT + Self-Consistency** supera a cada técnica por separado. La sinergia: CoT (razonamiento interno) + ReAct (información externa) + Self-Consistency (votación mayoritaria).
+
+**Resultados en decision-making:**
+- **ALFWorld** (navegación en entorno textual): ReAct supera a Act-only — el razonamiento explícito es clave para descomponer subobjetivos
+- **WebShop** (compras online simuladas): ReAct supera a Act-only
+- Los humanos expertos siguen superando a los métodos prompting-based en estas tareas
+
+---
+
+## 15. Reflexion — arquitectura de 3 componentes
+
+*(Técnica principal en [[concepts/planning]] y [[reflexion-paper]])*
+
+**Origen:** Shinn et al. 2023 — "Reflexion: Language Agents with Verbal Reinforcement Learning"
+
+La arquitectura formal de Reflexion tiene **3 modelos separados**:
+
+| Componente | Función | Implementación |
+|---|---|---|
+| **Actor** | Genera texto y acciones; opera en el entorno | CoT o ReAct |
+| **Evaluator** | Puntúa las trayectorias del Actor (reward) | LLM judge o heurísticas rule-based |
+| **Self-Reflection** | Genera feedback verbal desde reward + trayectoria + memoria | LLM; almacena en LTM |
+
+**Flujo:**
+```
+Actor genera trayectoria
+    ↓ Evaluator puntúa
+    ↓ Self-Reflection genera feedback verbal + guarda en LTM
+    ↓ Actor usa feedback en siguiente episodio → mejora iterativa
+```
+
+**Resultado clave (AlfWorld):** ReAct + Reflexion completa **130/134 tareas** — sustancial mejora sobre ReAct solo.
+
+**Cuándo usar Reflexion:**
+- Agente necesita aprender de ensayo y error
+- RL tradicional es impracticable (no fine-tuning)
+- Feedback debe ser matizado y específico (no solo escalar)
+- Interpretabilidad y memoria explícita son importantes
+
+---
+
+## 16. Multimodal CoT
+
+**Origen:** Zhang et al. 2023 — "Multimodal Chain-of-Thought Reasoning in Language Models"
+
+Extiende CoT al dominio multimodal (texto + visión) con un framework de dos etapas:
+
+```
+Etapa 1 — Generación de rationale:
+[texto + imagen] → LLM genera razonamiento basado en información multimodal
+
+Etapa 2 — Inferencia de respuesta:
+[rationale generado] + [pregunta] → LLM infiere la respuesta final
+```
+
+**Resultado:** Modelo de **1B parámetros** supera a GPT-3.5 en **ScienceQA** — la arquitectura importa más que el tamaño para razonamiento multimodal.
+
+---
+
+## 17. GraphPrompt
+
+**Origen:** Liu et al. 2023 (arXiv:2302.08043) — contexto GNN, relevancia tangencial para LLMs.
+
+Framework que unifica pre-training y downstream tasks en Graph Neural Networks mediante un template común + prompt entrenable para localización de conocimiento específico. Analogía del paradigma prompting de LLMs aplicada al dominio de grafos.
 
 ---
 
@@ -211,10 +287,16 @@ Prompting foundation
         ├── Zero-shot CoT ("Let's think step by step" — Kojima et al. 2022)
         ├── Self-Consistency (múltiples CoT + votación — Wang et al. 2022)
         ├── Generated Knowledge (genera conocimiento antes — Liu et al. 2022)
+        ├── Active-Prompt (CoT adaptativo por incertidumbre — Diao et al. 2023)
         └── ART (CoT + herramientas + Task Library — Paranjape et al. 2023)
 
-Tree of Thoughts  (árbol multi-rama — Yao et al. 2023 + Long 2023)
-RAG               (recuperación + generación — Lewis et al. 2021)
+PAL            (código como razonamiento — Gao et al. 2022)
+APE            (optimización automática de prompts — Zhou et al. 2022)
+ReAct          (razonamiento + acción interleaved — Yao et al. 2022)
+Reflexion      (RL verbal, 3 componentes — Shinn et al. 2023)
+ToT            (árbol multi-rama — Yao et al. 2023 + Long 2023)
+Multimodal CoT (texto + visión, 2 etapas — Zhang et al. 2023)
+RAG            (recuperación + generación — Lewis et al. 2021)
 ```
 
 ---
@@ -223,24 +305,31 @@ RAG               (recuperación + generación — Lewis et al. 2021)
 
 | Técnica | Paper | Año |
 |---------|-------|-----|
-| Few-shot / ICL | Brown et al. (GPT-3) | 2020 |
 | RAG | Lewis et al. (NeurIPS) | 2021 |
+| Few-shot / ICL | Brown et al. (GPT-3) | 2020 |
 | CoT (few-shot) | Wei et al. | 2022 |
 | CoT (zero-shot) | Kojima et al. | 2022 |
 | Self-Consistency | Wang et al. | 2022 |
 | Generated Knowledge | Liu et al. | 2022 |
 | Label role in few-shot | Min et al. | 2022 |
+| PAL | Gao et al. | 2022 |
+| APE | Zhou et al. | 2022 |
+| ReAct | Yao et al. | 2022 |
 | ToT (BFS/DFS) | Yao et al. | 2023 |
 | ToT (RL controller) | Long | 2023 |
 | ART | Paranjape et al. | 2023 |
+| Active-Prompt | Diao et al. | 2023 |
+| Reflexion | Shinn et al. | 2023 |
+| Multimodal CoT | Zhang et al. | 2023 |
+| GraphPrompt (GNNs) | Liu et al. | 2023 |
 
 ---
 
 ## Conexiones
 
 - [[concepts/prompt-engineering]] — Zero-shot y Few-shot como fundamentos
-- [[concepts/planning]] — CoT, Self-Consistency, Generated Knowledge, ToT, ART: técnicas de razonamiento agéntico
+- [[concepts/planning]] — CoT, Self-Consistency, Generated Knowledge, ToT, ART, PAL, APE, ReAct, Reflexion
 - [[concepts/rag]] — Lewis et al. 2021 como origen del paradigma RAG
 - [[lilian-weng-agents]] — ToT y ReAct desde perspectiva de agentes (Weng)
 - [[andrew-ng-agentic-patterns]] — ART relacionado con el Tool Use pattern (Ng)
-- [[reflexion-paper]] — Reflexion como evolución de CoT con memoria verbal y múltiples intentos
+- [[reflexion-paper]] — Reflexion: arquitectura de 3 componentes, resultados AlfWorld, limitaciones
