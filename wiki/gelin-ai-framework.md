@@ -26,7 +26,7 @@ El AI Framework **no es un producto que se compra** — es un artefacto que se c
 | Componente | Descripción | Ejemplo |
 |---|---|---|
 | **Agents** | Personas especializadas con expertise específico | PM Agent, Frontend Agent, QA Agent |
-| **Skills** | Contexto auto-cargado según tipo de tarea | Design system skill, API conventions skill |
+| **Skills** | Contexto auto-cargado según tipo de tarea; formato YAML + markdown; 3 niveles de carga progresiva | Design system skill, API conventions skill |
 | **MCPs** | Conexiones a datos y herramientas externas | Nx MCP, Jira MCP, Git MCP |
 | **Prompts** | Instrucciones reutilizables para tareas comunes | "Al generar un componente, usa siempre nuestro Button primitive" |
 | **Templates** | Estructuras estándar para outputs comunes | PR template, ADR template, user story format |
