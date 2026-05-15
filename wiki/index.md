@@ -20,7 +20,7 @@ Catálogo de todas las páginas del wiki. El LLM mantiene este archivo actualiza
 - [[isenberg-ai-sdlc]] — Ran Isenberg: AI-SDLC gobernado con SDD, MCP broker centralizado, flujo Jira→producción, desafíos de escala (1 fuente)
 - [[gelin-ai-framework]] — Jonathan Gelin: AI Framework como artefacto organizacional, 7 componentes, efecto compuesto, MCP, Claude Code como referencia, Interview Mode (1 fuente)
 - [[gelin-skills-format]] — Jonathan Gelin: Skills como npm de AI, anatomía YAML+markdown, progressive loading 3 niveles, convergencia cross-platform, ClawHub (1 fuente)
-- [[promptingguide-techniques]] — DAIR-AI: 9 técnicas (Zero-shot→ART), jerarquía de prompting, 10 papers clave (Brown 2020, Lewis 2021, Wei/Kojima/Wang/Liu 2022, Yao/Long/Paranjape 2023) (9 artículos)
+- [[promptingguide-techniques]] — DAIR-AI: 17 técnicas (Zero-shot→GraphPrompt), jerarquía de prompting, 17 papers clave; APE, PAL, Active-Prompt, ReAct, Reflexion, Multimodal CoT (17 artículos)
 
 ### Agentes LLM — Fundamentos
 - [[lilian-weng-agents]] — Weng: Planning+Memory+Tools, CoT/ToT/ReAct/Reflexion, ANN, casos de uso (1 fuente)
@@ -90,7 +90,7 @@ Catálogo de todas las páginas del wiki. El LLM mantiene este archivo actualiza
 - [[concepts/llm-agents]] — Arquitectura base: Planning+Memory+Tools + benchmark HumanEval (2 fuentes)
 - [[concepts/agentic-design-patterns]] — 4 patrones Ng: Reflection/Tool Use/Planning/Multi-Agent (2 fuentes)
 - [[concepts/prompt-engineering]] — Zero-shot, Few-shot, ICL (Brown et al. 2020; Min et al. 2022 sobre el rol de las etiquetas) (1 fuente)
-- [[concepts/planning]] — Técnicas: CoT, Self-Consistency, Generated Knowledge, ToT, ReAct, ART, Reflexion (91% HE), LLM+P (4 fuentes)
+- [[concepts/planning]] — 11 técnicas: CoT, Self-Consistency, Generated Knowledge, ToT, ReAct, ART, PAL, APE, Reflexion (91% HE + 130/134 AlfWorld), LLM+P, CoH (4 fuentes)
 - [[concepts/agent-memory]] — Memoria: STM/LTM, ANN (LSH/ANNOY/HNSW/FAISS/ScaNN) (1 fuente)
 - [[concepts/agent-evaluation]] — Evaluación: trajectory evaluation, BALROG, LangSmith (3 fuentes)
 

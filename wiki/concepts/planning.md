@@ -1,7 +1,7 @@
 ---
 title: "Planning — Técnicas de Razonamiento y Planificación en Agentes"
 type: concept
-tags: [planning, cot, tree-of-thoughts, react, reflexion, self-consistency, generated-knowledge, art, agentes, razonamiento]
+tags: [planning, cot, tree-of-thoughts, react, reflexion, self-consistency, generated-knowledge, art, pal, ape, active-prompt, multimodal-cot, agentes, razonamiento]
 sources: [2026-05-13_lilian-weng-agents.md, 2026-05-13_andrew-ng-agentic-patterns.md, 2026-05-13_reflexion-paper.md, promptingguide-techniques.md]
 updated: 2026-05-14
 ---

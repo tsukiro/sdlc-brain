@@ -14,9 +14,9 @@ updated: 2026-05-13
 
 ## Estado actual
 
-- Fuentes procesadas: 51
+- Fuentes procesadas: 57
 - Páginas wiki: 87
-- Último ingest: 2026-05-14 (Prompt Engineering Guide — 9 técnicas, DAIR-AI)
+- Último ingest: 2026-05-14 (Prompt Engineering Guide — 17 técnicas, DAIR-AI; 2º lote)
 
 ---
 
@@ -48,7 +48,7 @@ Reflection, Tool Use, Planning, Multi-Agent. Se componen. Ver [[concepts/agentic
 Zero-shot (instruction tuning + RLHF) y Few-shot (Brown et al. 2020 — in-context learning). Hallazgo clave: el formato de los ejemplos importa más que las etiquetas correctas (Min et al. 2022). Son la base de todas las técnicas de reasoning. Ver [[concepts/prompt-engineering]], [[promptingguide-techniques]].
 
 ### 4. Técnicas de Planning
-**9 técnicas documentadas**: CoT (Wei + Kojima 2022), Self-Consistency (Wang 2022; múltiples CoT + votación; +10–20 pts sobre greedy), Generated Knowledge (Liu 2022; dos fases), ToT (Yao + Long 2023; BFS/DFS), ReAct, ART (Paranjape 2023; CoT + herramientas + Task Library; supera few-shot en BigBench + MMLU), Reflexion (91% HumanEval), LLM+P, CoH. Ver [[concepts/planning]].
+**11 técnicas documentadas**: CoT (Wei + Kojima 2022; "Let's think step by step"), Self-Consistency (Wang 2022; +10–20 pts sobre greedy), Generated Knowledge (Liu 2022), ToT (Yao 2023 + Long 2023; BFS/DFS), ReAct (Yao **2022**; mejor combo = ReAct + CoT + Self-Consistency), ART (Paranjape 2023; supera few-shot en BigBench + MMLU), **PAL** (Gao 2022; código Python como razonamiento → intérprete determinista), **APE** (Zhou 2022; encontró mejor zero-shot CoT que el humano), Reflexion (91% HumanEval, 130/134 AlfWorld; 3 componentes: Actor/Evaluator/Self-Reflection), LLM+P, CoH. Ver [[concepts/planning]].
 
 ### 5. Memoria en Agentes
 STM (contexto) + LTM (vector DB = RAG). Ver [[concepts/agent-memory]].

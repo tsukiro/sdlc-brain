@@ -208,3 +208,9 @@ Registro cronológico append-only de todas las operaciones del wiki.
 - Prompt Chaining: artículo sin contenido procesable (placeholder de traducción)
 - Páginas creadas: [[promptingguide-techniques]], [[concepts/prompt-engineering]]
 - Páginas actualizadas: [[concepts/planning]] (Self-Consistency T7, Generated Knowledge T8, ART T9; Kojima 2022 para zero-shot CoT; Long 2023 para ToT; tabla comparativa expandida), [[concepts/rag]] (Lewis et al. 2021 como origen del paradigma), [[overview]] (tema 3b Prompt Engineering; tema 4 Planning expandido; mapa actualizado; contador 51 fuentes / 87 páginas), [[index]]
+
+## [2026-05-14] ingest | Prompt Engineering Guide — 2º lote (DAIR-AI): APE, PAL, ReAct, Reflexion, Multimodal CoT + otros
+- Nuevas técnicas: APE (Zhou 2022; encontró "Let's work this out step by step" > "Let's think step by step" en MultiArith+GSM8K), PAL (Gao 2022; código Python como razonamiento → intérprete determinista), Active-Prompt (Diao 2023; CoT adaptativo por incertidumbre), DSP (Li 2023; policy LM genera hints para LLM congelado), Multimodal CoT (Zhang 2023; 1B parámetros > GPT-3.5 en ScienceQA), GraphPrompt (Liu 2023; GNNs)
+- Correcciones: ReAct año 2022 (no 2023); Reflexion 3 componentes (Actor/Evaluator/Self-Reflection), AlfWorld 130/134
+- ART: confirmación "in a zero-shot fashion" + "excede prompts artesanales con feedback humano"
+- Páginas actualizadas: [[promptingguide-techniques]] (reescritura completa; 17 artículos, 17 papers), [[concepts/planning]] (PAL T10, APE T11; ReAct año fix + best-combo + ALFWorld/WebShop; Reflexion 3 componentes + AlfWorld 130/134; tabla expandida), [[overview]] (57 fuentes; Tema 4 Planning expandido a 11 técnicas), [[index]]
