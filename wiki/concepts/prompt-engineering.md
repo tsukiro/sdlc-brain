@@ -168,7 +168,9 @@ Especificaciones claras (número de oraciones, nivel de audiencia, formato) → 
 
 ## Conexiones
 
-- [[promptingguide-techniques]] — fuente primaria: 9 artículos con los papers de referencia
+- [[promptingguide-techniques]] — fuente primaria: 20 técnicas con papers de referencia
+- [[promptingguide-introduction]] — fuente primaria: Elements, Tips, LLM Settings
+- [[concepts/llm-settings]] — parámetros de generación (temperature, Top P, penalties) como complemento al diseño del prompt
 - [[concepts/planning]] — técnicas avanzadas de razonamiento (CoT, Self-Consistency, Generated Knowledge, ToT, ART, ReAct, Reflexion)
 - [[concepts/rag]] — Lewis et al. 2021 como origen del paradigma RAG
 - [[concepts/llm-agents]] — prompting como base del ciclo agente (Planning + Memory + Tools)

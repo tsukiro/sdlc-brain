@@ -21,6 +21,10 @@ Catálogo de todas las páginas del wiki. El LLM mantiene este archivo actualiza
 - [[gelin-ai-framework]] — Jonathan Gelin: AI Framework como artefacto organizacional, 7 componentes, efecto compuesto, MCP, Claude Code como referencia, Interview Mode (1 fuente)
 - [[gelin-skills-format]] — Jonathan Gelin: Skills como npm de AI, anatomía YAML+markdown, progressive loading 3 niveles, convergencia cross-platform, ClawHub (1 fuente)
 - [[promptingguide-techniques]] — DAIR-AI: 20 técnicas (Zero-shot→Prompt Functions), jerarquía de prompting, 17 papers; APE, PAL, Active-Prompt, ReAct, Reflexion, Multimodal CoT, Function Calling, Context Caching, Prompt Functions (20 artículos)
+- [[promptingguide-introduction]] — DAIR-AI: LLM Settings (Temperature/Top P/Frequency/Presence Penalty), Prompt Elements (4 componentes), Tips (Do vs. Don't, especificidad, verbos de comando) (4 artículos)
+- [[promptingguide-risks]] — DAIR-AI: Factualidad/alucinaciones, Distribution Bias + Order Bias (experimento 8:2), Adversarial Prompting (DAN, Waluigi Effect, Prompt Injection, defenses) (3 artículos)
+- [[promptingguide-applications-data]] — DAIR-AI: Generación de datos sintéticos, Synthetic RAG (Dai et al. 2022: 8 ejemplos/$55/50K docs), Code Gen (imports failure mode), Case Study Clavié et al. 2023 (F1 65.6→91.7, CoT few-shot peor que zero-shot) (4 artículos)
+- [[promptingguide-models]] — DAIR-AI: ChatGPT (RLHF, Role Prompting), GPT-4 (128K, JSON Mode, seed, system_fingerprint), LLaMA (Chinchilla insight, 13B > GPT-3 en 1 GPU), Mistral 7B (GQA+SWA, 14-cat moderation, Apache 2.0) (4 artículos)
 
 ### Agentes LLM — Fundamentos
 - [[lilian-weng-agents]] — Weng: Planning+Memory+Tools, CoT/ToT/ReAct/Reflexion, ANN, casos de uso (1 fuente)
