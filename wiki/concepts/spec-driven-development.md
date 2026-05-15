@@ -169,6 +169,22 @@ Feature: Shopping Cart
 | **Burocracia** (specs = formularios) | Mínimo necesario para eliminar ambigüedad |
 | **False confidence** (test pasa ≠ software correcto) | La spec también puede estar mal; revisión humana obligatoria |
 
+## Desafíos de SDD en producción (Isenberg, 2026)
+
+Evidencia de adopción real con AI coding agents en entornos enterprise:
+
+| Desafío | Descripción |
+|---|---|
+| **Overhead de proceso** | Specs demasiado largas → devs las evitan; requiere fine-tuning continuo del peso del proceso |
+| **Selección de herramienta** | Tools son muy opinionated (spec-first vs. spec-anchored); difícil standardizar y cambiar de tool |
+| **Review de specs > review de código** | Archivos `.md` son menos auditables; feedback más lento y de menor calidad |
+| **Agentes ignoran specs** | AI no es 100% determinista; puede reinterpretar partes de la spec → validación humana continua esencial |
+| **Overkill para tareas pequeñas** | Best practices de cuándo usar SDD no están claras; requiere trial-and-error por equipo |
+
+**Regla emergente**: el sub-flujo SDD por etapa es **Plan → Validar con stakeholders → Ejecutar**. Esta estructura crea resultados predecibles y permite feedback temprano. Sin ella, los agentes optimizan para velocidad, no para intención de negocio.
+
+**Nuevo tool mencionado**: [BMAD Method](https://github.com/bmad-code-org/BMAD-METHOD) — junto a Kiro y Spec-It/speckit, como implementación de SDD con agentes.
+
 ---
 
 ## Relación con prácticas existentes

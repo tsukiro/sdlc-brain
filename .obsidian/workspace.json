@@ -182,6 +182,7 @@
   },
   "active": "9a67974b4db3bc51",
   "lastOpenFiles": [
+    "wiki/isenberg-ai-sdlc.md",
     "wiki/snyk-ai-sdlc.md",
     "wiki/overview.md",
     "wiki/calcagni-control-vectors.md",
@@ -207,7 +208,6 @@
     "wiki/entities/typechat.md",
     "wiki/entities/instructor.md",
     "wiki/entities/outlines.md",
-    "wiki/jxnl-pipelines.md",
     "wiki/analyses",
     "wiki/concepts",
     "wiki/entities",
